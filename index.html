@@ -1,0 +1,1740 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Reformasi 1998 - Perjalanan Demokrasi Indonesia</title>
+    <link rel="stylesheet" href="fontawesome-5.5/css/all.min.css" />
+    <link rel="stylesheet" href="slick/slick.css">
+    <link rel="stylesheet" href="slick/slick-theme.css">
+    <link rel="stylesheet" href="magnific-popup/magnific-popup.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/tooplate-infinite-loop.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet" />
+    <style>
+      .tm-hero-title {
+        font-family: 'Bebas Neue', cursive !important;
+        letter-spacing: 4px;
+        text-shadow: none !important;
+        will-change: transform;
+      }
+      .tm-hero-title-split {  
+        background: linear-gradient(
+          to bottom,
+          #cc0000 0%,
+          #cc0000 50%,
+          #ffffff 50%,
+          #ffffff 100%
+        );
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        text-shadow: none !important;
+      }
+
+      /* Smooth scroll indicator */
+      #scroll-progress {
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 2px;
+        background: #cc0000;
+        z-index: 9999;
+        width: 0%;
+        transition: width 0.1s linear;
+      }
+
+      /* Navbar smooth */
+      .tm-navbar {
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1) !important;
+      }
+      .tm-navbar-inner {
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+
+      /* Section fade-in saat pertama load */
+      .tm-hero-text-container-inner {
+        animation: heroFadeIn 1s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+      }
+      @keyframes heroFadeIn {
+        from { opacity: 0; transform: translateY(30px); }
+        to   { opacity: 1; transform: translateY(0); }
+      }
+
+      /* Smooth hover semua card */
+      .latar-card, .dr-card, .galeri-card {
+        transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1),
+                    box-shadow 0.35s cubic-bezier(0.4, 0, 0.2, 1),
+                    border-color 0.35s cubic-bezier(0.4, 0, 0.2, 1) !important;
+      }
+      .latar-card:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 8px 32px rgba(204,0,0,0.15);
+        border-color: rgba(204,0,0,0.3) !important;
+      }
+
+      /* Smooth animasi kartu masuk - DISABLED untuk tampil langsung */
+      .latar-card-wrap {
+        opacity: 1 !important;
+        transform: translateX(0) !important;
+        transition: none;
+        will-change: auto;
+      }
+
+      /* Smooth timeline cards */
+      .tree-branch-wrap {
+        will-change: transform, opacity;
+      }
+
+      /* Smooth image overlay */
+      .latar-card-overlay, .latar-card-overlay-dim {
+        transition: opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1) !important;
+      }
+
+      /* Smooth dr-fade-up - DISABLED */
+      .dr-fade-up {
+        opacity: 1 !important;
+        transform: translateY(0) !important;
+        transition: none;
+        will-change: auto;
+      }
+      .latar-card:hover .latar-card-overlay,
+      .latar-card:hover .latar-card-overlay-dim {
+        opacity: 1 !important;
+      }
+
+      /* Animasi kartu - DISABLED */
+      .latar-card-wrap {
+        opacity: 1 !important;
+        transform: translateX(0) !important;
+        transition: none;
+      }
+
+      /* Tree Timeline - Akar Pohon Horizontal */
+      .tree-timeline {
+        position: relative;
+        max-width: 900px;
+        margin: 60px auto;
+        padding: 40px 0 80px;
+        min-height: 1000px;
+      }
+      .tree-trunk {
+        position: absolute;
+        left: 50%;
+        top: 0;
+        bottom: 0;
+        width: 2px;
+        background: #cc0000;
+        transform: translateX(-50%);
+      }
+
+      /* ===== MOBILE TIMELINE ===== */
+      @media (max-width: 767px) {
+        .tree-timeline {
+          min-height: unset !important;
+          padding: 20px 16px 40px !important;
+          margin: 20px auto !important;
+          max-width: 100% !important;
+        }
+        .tree-trunk {
+          display: block !important;
+          left: 50% !important;
+          transform: translateX(-50%) !important;
+          width: 2px !important;
+          background: #cc0000 !important;
+        }
+        .tree-branch-wrap {
+          position: relative !important;
+          top: auto !important;
+          left: auto !important;
+          width: 100% !important;
+          height: auto !important;
+          display: flex !important;
+          align-items: flex-start !important;
+          margin-bottom: 40px !important;
+        }
+        .tree-dot {
+          position: relative !important;
+          top: auto !important;
+          left: auto !important;
+          right: auto !important;
+          transform: none !important;
+          flex-shrink: 0 !important;
+          margin-top: 16px !important;
+          margin-right: 14px !important;
+          margin-left: 14px !important;
+        }
+        .tree-card {
+          position: relative !important;
+          top: auto !important;
+          left: auto !important;
+          right: auto !important;
+          transform: none !important;
+          width: calc(50% - 50px) !important;
+          padding: 14px !important;
+        }
+        .tree-card.left {
+          order: -1 !important;
+          text-align: left !important;
+          border-left: 3px solid #cc0000 !important;
+        }
+        .tree-card.right {
+          text-align: left !important;
+          border-left: 3px solid #cc0000 !important;
+        }
+        .tree-branch-wrap[data-side="left"] {
+          flex-direction: row-reverse !important;
+          justify-content: flex-end !important;
+        }
+        .tree-branch-wrap[data-side="right"] {
+          flex-direction: row !important;
+          justify-content: flex-end !important;
+        }
+      }
+      /* ===== DAMPAK REFORMASI STYLES ===== */
+      @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800;900&family=Inter:wght@400;500&display=swap');
+
+      .dr-card {
+        background: rgba(17,17,17,0.85);
+        border: 1px solid #242424;
+        border-radius: 14px;
+        padding: 28px 24px;
+        height: 100%;
+        backdrop-filter: blur(12px);
+        transition: all 0.35s ease;
+        box-shadow: 0 4px 24px rgba(0,0,0,0.4);
+        position: relative;
+        overflow: hidden;
+      }
+      .dr-card::before {
+        content: '';
+        position: absolute;
+        top: 0; left: 0; right: 0;
+        height: 2px;
+        background: linear-gradient(90deg, transparent, #ff2d2d, transparent);
+        opacity: 0;
+        transition: opacity 0.35s ease;
+      }
+      .dr-card:hover {
+        border-color: rgba(255,45,45,0.35);
+        box-shadow: 0 8px 40px rgba(255,45,45,0.12), 0 2px 8px rgba(0,0,0,0.5);
+        transform: translateY(-4px);
+      }
+      .dr-card:hover::before {
+        opacity: 1;
+      }
+      .dr-card-neg {
+        border-color: #2a2a2a;
+      }
+      .dr-card-neg:hover {
+        border-color: rgba(255,45,45,0.2);
+        box-shadow: 0 8px 32px rgba(255,45,45,0.07);
+      }
+      .dr-card-icon {
+        font-size: 2rem;
+        margin-bottom: 14px;
+        display: block;
+      }
+      .dr-card h4 {
+        font-family: 'Montserrat', sans-serif;
+        font-weight: 700;
+        font-size: 1rem;
+        color: #ffffff;
+        margin-bottom: 10px;
+      }
+      .dr-card p {
+        font-family: 'Inter', sans-serif;
+        font-size: 0.875rem;
+        color: #b3b3b3;
+        line-height: 1.65;
+        margin: 0;
+      }
+
+      /* Fade-in khusus kartu latar belakang - DISABLED */
+      .latar-fade {
+        opacity: 1 !important;
+        transform: translateX(0) !important;
+        transition: none !important;
+      }
+      .latar-card-overlay {
+        opacitY: 0;
+        transform: translateY(30px);
+        transition: opacity 0.6s ease, transform 0.6s ease;
+      }
+      .dr-fade-up.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      .dr-stat {
+        padding: 20px;
+        border-right: 1px solid #242424;
+      }
+      .dr-stat:last-child {
+        border-right: none;
+      }
+      @media (max-width: 767px) {
+        .dr-stat { border-right: none; border-bottom: 1px solid #242424; }
+        .dr-stat:last-child { border-bottom: none; }
+      }
+
+      /* ===== CINEMATIC FLOAT CARDS ===== */
+      .cin-float {
+        transition: transform 0.4s cubic-bezier(0.4,0,0.2,1),
+                    box-shadow 0.4s cubic-bezier(0.4,0,0.2,1),
+                    border-color 0.4s ease;
+        cursor: default;
+        transform: translateY(-10px);
+        box-shadow: 0 24px 60px rgba(255,45,45,0.1), 0 4px 20px rgba(0,0,0,0.6);
+        border-color: rgba(255,45,45,0.2) !important;
+      }
+      .cin-reveal {
+        opacity: 1 !important;
+        transform: translateY(0) !important;
+        transition: none;
+      }
+      @media (max-width: 767px) {
+        .cin-grid {
+          grid-template-columns: 1fr !important;
+          padding-left: 0 !important;
+          padding-right: 0 !important;
+        }
+        .cin-float {
+          margin-top: 0 !important;
+        }
+      }
+      .cin-card-neg{
+        border-radius: 20px;
+        border: 1px solid rgba(255,255,255,0.06);
+        backdrop-filter: blur(16px);
+        -webkit-backdrop-filter: blur(16px);
+        position: relative;
+        overflow: hidden;
+        transition: transform 0.4s cubic-bezier(0.4,0,0.2,1),
+                    box-shadow 0.4s cubic-bezier(0.4,0,0.2,1),
+                    border-color 0.4s ease;
+      }
+      .cin-card::before {
+        content: '';
+        position: absolute;
+        left: 0; top: 0; bottom: 0;
+        width: 3px;
+        border-radius: 20px 0 0 20px;
+        opacity: 0;
+        transition: opacity 0.4s ease;
+      }
+      .cin-card:hover {
+        transform: translateY(-8px);
+      }
+      .cin-card:hover::before {
+        opacity: 1;
+      }
+
+      /* Positif */
+      .cin-card-pos {
+        background: rgba(15,15,15,0.7);
+      }
+      .cin-card-pos::before {
+        background: #ff2d2d;
+      }
+      .cin-card-pos:hover {
+        border-color: rgba(255,45,45,0.25);
+        box-shadow: 0 20px 60px rgba(255,45,45,0.1), 0 4px 20px rgba(0,0,0,0.5);
+      }
+
+      /* Negatif */
+      .cin-card-neg {
+        background: rgba(8,8,8,0.75);
+      }
+      .cin-card-neg::before {
+        background: #555;
+      }
+      .cin-card-neg:hover {
+        border-color: rgba(255,45,45,0.15);
+        box-shadow: 0 20px 60px rgba(255,45,45,0.07), 0 4px 20px rgba(0,0,0,0.7);
+      }
+
+      /* Responsive grid */
+      @media (max-width: 767px) {
+        .dampak-grid {
+          grid-template-columns: 1fr !important;
+        }
+      }
+      .galeri-card {
+        border-radius: 12px;
+        padding: 28px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        border: 1px solid #1a1a1a;
+        transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease;
+        cursor: pointer;
+        position: relative;
+        overflow: hidden;
+      }
+      .galeri-card::after {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background: rgba(204,0,0,0.05);
+        opacity: 0;
+        transition: opacity 0.35s ease;
+        border-radius: 12px;
+      }
+      .galeri-card:hover {
+        transform: translateY(-6px) scale(1.02);
+        box-shadow: 0 12px 40px rgba(0,0,0,0.6), 0 0 0 1px rgba(204,0,0,0.2);
+        border-color: rgba(204,0,0,0.25);
+      }
+      .galeri-card:hover::after {
+        opacity: 1;
+      }
+      .tree-dot {
+        position: absolute;
+        width: 14px;
+        height: 14px;
+        background: #cc0000;
+        border: 3px solid #111;
+        border-radius: 50%;
+        top: 50%;
+        transform: translateY(-50%);
+        box-shadow: 0 0 10px rgba(204,0,0,0.7);
+        z-index: 10;
+      }
+      .tree-dot.left,
+      .tree-dot.right {
+        left: calc(50% - 7px);
+        right: auto;
+      }
+      .tree-card {
+        position: absolute;
+        width: 320px;
+        background: rgba(18,18,18,0.92);
+        border: 1px solid #2a2a2a;
+        border-radius: 6px;
+        padding: 22px 26px;
+        top: 50%;
+        transform: translateY(-50%);
+      }
+      .tree-card.left {
+        right: calc(50% + 30px);
+        text-align: left;
+        border-left: 3px solid #cc0000;
+      }
+      .tree-card.right {
+        left: calc(50% + 30px);
+        text-align: left;
+        border-left: 3px solid #cc0000;
+      }
+      .tree-card .tree-date {
+        display: inline-block;
+        font-size: 0.75rem;
+        color: #cc0000;
+        font-weight: bold;
+        letter-spacing: 1px;
+        margin-bottom: 8px;
+      }
+      .tree-card h4 {
+        font-size: 1.2rem;
+        color: #fff;
+        margin-bottom: 10px;
+        font-weight: 700;
+      }
+      .tree-card p {
+        font-size: 0.88rem;
+        color: #bbb;
+        line-height: 1.6;
+        margin: 0;
+      }
+
+      /* Animasi timeline cards - DISABLED */
+      .tree-branch-wrap {
+        position: absolute;
+        width: 100%;
+        left: 0;
+        height: 120px;
+        opacity: 1 !important;
+        transform: translateX(0) !important;
+        transition: none;
+      }
+      .tree-branch {
+        display: none;
+      }
+      .tree-branch-wrap:nth-child(2) { transition-delay: 0.0s; }
+      .tree-branch-wrap:nth-child(3) { transition-delay: 0.15s; }
+      .tree-branch-wrap:nth-child(4) { transition-delay: 0.30s; }
+      .tree-branch-wrap:nth-child(5) { transition-delay: 0.45s; }
+      .tree-branch-wrap:nth-child(6) { transition-delay: 0.60s; }
+
+      /* ===== DAMPAK REFORMASI - GLITCH & RESPONSIVE ===== */
+      .dampak-glitch {
+        position: relative;
+      }
+      .dampak-glitch::before,
+      .dampak-glitch::after {
+        content: attr(data-text);
+        position: absolute;
+        top: 0; left: 0;
+        width: 100%;
+        height: 100%;
+        font-family: inherit;
+        font-size: inherit;
+        font-weight: inherit;
+        letter-spacing: inherit;
+        line-height: inherit;
+      }
+      .dampak-glitch::before {
+        color: #00c864;
+        clip-path: polygon(0 30%, 100% 30%, 100% 50%, 0 50%);
+        transform: translateX(-3px);
+        animation: glitch1 4s infinite;
+        opacity: 0.6;
+      }
+      .dampak-glitch::after {
+        color: #ff3c00;
+        clip-path: polygon(0 60%, 100% 60%, 100% 75%, 0 75%);
+        transform: translateX(3px);
+        animation: glitch2 4s infinite;
+        opacity: 0.6;
+      }
+      @keyframes glitch1 {
+        0%, 90%, 100% { transform: translateX(0); opacity: 0; }
+        92% { transform: translateX(-4px); opacity: 0.6; }
+        94% { transform: translateX(4px); opacity: 0.6; }
+        96% { transform: translateX(-2px); opacity: 0.6; }
+        98% { transform: translateX(0); opacity: 0; }
+      }
+      @keyframes glitch2 {
+        0%, 90%, 100% { transform: translateX(0); opacity: 0; }
+        93% { transform: translateX(4px); opacity: 0.6; }
+        95% { transform: translateX(-4px); opacity: 0.6; }
+        97% { transform: translateX(2px); opacity: 0.6; }
+        99% { transform: translateX(0); opacity: 0; }
+      }
+      /* Responsive dampak grid */
+      @media (max-width: 768px) {
+        #dampak-grid { grid-template-columns: 1fr !important; }
+        #col-pos, #col-neg {
+          padding: 40px 24px !important;
+          border-right: none !important;
+          border-bottom: 1px solid rgba(255,255,255,0.06);
+        }
+      }
+      /* Gallery hover */
+      .tm-gallery-item:hover img { transform: scale(1.05); }
+      .tm-gallery-item div { overflow: hidden; }
+    </style>
+
+  </head>
+  <body>    
+    <!-- Scroll progress bar -->
+    <div id="scroll-progress"></div>
+
+    <!-- Navigation (fixed, outside hero) -->
+    <nav class="navbar navbar-expand-md tm-navbar" id="tmNav">              
+      <div class="tm-navbar-inner">   
+        <div class="tm-next">
+            <a href="#infinite" class="navbar-brand">REFORMASI 1998</a>
+        </div>             
+          
+        <!-- Hamburger / X toggle: hanya tampil di mobile -->
+        <button class="tm-sidebar-toggle" id="tm-hamburger" type="button" aria-label="Toggle navigation" onclick="tmToggleSidebar()">
+          <span class="tm-ham-line"></span>
+          <span class="tm-ham-line"></span>
+          <span class="tm-ham-line"></span>
+        </button>
+
+        <!-- Desktop nav (tersembunyi di mobile) -->
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mx-auto">
+            <li class="nav-item">
+                <a class="nav-link tm-nav-link" href="#whatwedo">Latar Belakang</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link tm-nav-link" href="#testimonials">Perjalanan Reformasi</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link tm-nav-link" href="#gallery">Dampak Reformasi</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link tm-nav-link" href="#era-reformasi">Era Reformasi</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link tm-nav-link" href="#contact">Galeri</a>
+            </li>                    
+          </ul>
+          <div class="tm-navbar-explore">
+            <a href="#whatwedo" class="tm-btn-explore">Explore</a>
+          </div>
+        </div>        
+      </div>
+    </nav>
+
+    <!-- Sidebar Drawer (mobile only) -->
+    <div id="tm-sidebar-overlay" onclick="tmCloseSidebar()"></div>
+    <div id="tm-sidebar">
+      <div class="tm-sidebar-header">
+        <span class="tm-sidebar-brand">REFORMASI 1998</span>
+      </div>
+      <nav class="tm-sidebar-nav">
+        <a href="#whatwedo"      class="tm-sidebar-link" onclick="tmCloseSidebar()">Latar Belakang</a>
+        <a href="#testimonials"  class="tm-sidebar-link" onclick="tmCloseSidebar()">Perjalanan Reformasi</a>
+        <a href="#gallery"       class="tm-sidebar-link" onclick="tmCloseSidebar()">Dampak Reformasi</a>
+        <a href="#era-reformasi" class="tm-sidebar-link" onclick="tmCloseSidebar()">Era Reformasi</a>
+        <a href="#contact"       class="tm-sidebar-link" onclick="tmCloseSidebar()">Galeri</a>
+      </nav>
+      <div class="tm-sidebar-footer">
+        <a href="#whatwedo" class="tm-btn-explore tm-sidebar-explore" onclick="tmCloseSidebar()">Explore</a>
+      </div>
+    </div>
+
+    <!-- Hero section -->
+    <section id="infinite" class="text-white tm-font-big tm-parallax" style="position:relative;overflow:hidden;">
+
+      <!-- Video Background -->
+      <video autoplay muted loop playsinline id="hero-video" style="
+        position:absolute;
+        top:50%;left:50%;
+        min-width:100%;min-height:100%;
+        width:auto;height:auto;
+        transform:translate(-50%,-50%);
+        object-fit:cover;
+        z-index:0;
+        opacity:40%;
+      ">
+        <source src="video/reformasi1998.mp4" type="video/mp4">
+      </video>
+      <!-- Overlay gelap di atas video -->
+      <div style="position:absolute;inset:0;background:rgba(0,0,0,0.55);z-index:1;"></div>
+      
+      <div class="text-center tm-hero-text-container">
+        <div class="tm-hero-text-container-inner">
+            <h2 class="tm-hero-title tm-hero-title-split">MASA REFORMASI INDONESIA</h2>
+            <p class="tm-hero-subtitle">
+              Perjalanan Indonesia menuju demokrasi setelah runtuhnya Orde Baru
+            </p>
+        </div>        
+      </div>
+
+      <div class="tm-next tm-intro-next" style="position:relative;z-index:100;">
+        <a href="#whatwedo" class="text-center tm-down-arrow-link">
+          <i class="fas fa-2x fa-arrow-down tm-down-arrow"></i>
+        </a>
+      </div>      
+    </section>
+
+    <section id="whatwedo" class="tm-section-pad-top">
+      
+      <div class="container">
+
+            <div class="row tm-content-box"><!-- first row -->
+                <div class="col-lg-12 col-xl-12 text-center">
+                    <div class="tm-intro-text-container">
+                        <h2 class="text-white mb-3 tm-section-title">Latar Belakang</h2>
+                        <div style="width:60px;height:3px;background:#cc0000;margin:0 auto 20px;"></div>
+                        <p class="mb-4 tm-intro-text">
+                          Memahami akar permasalahan yang memicu gelombang reformasi terbesar dalam sejarah Indonesia.
+                        </p>
+                    </div>
+                </div>
+            </div><!-- first row -->
+            
+            <div class="row tm-content-box"><!-- second row -->
+                <div class="col-lg-4 mb-4 latar-card-wrap latar-fade" onclick="openLatarModal('akhir-orde-baru')" style="cursor:pointer;">
+                    <div class="latar-card" style="border:1px solid #333;border-radius:6px;padding:30px;height:100%;position:relative;overflow:hidden;">
+                        <div class="latar-card-overlay" style="
+                            position:absolute;
+                            top:0;left:0;right:0;bottom:0;
+                            background-image:url('img/akhir-orde-baru.jpg');
+                            background-size:cover;
+                            background-position:center;
+                            opacity:0;
+                            transition:opacity 0.5s ease;
+                            border-radius:6px;
+                            z-index:0;
+                        "></div>
+                        <div class="latar-card-overlay-dim" style="
+                            position:absolute;
+                            top:0;left:0;right:0;bottom:0;
+                            background:rgba(0,0,0,0.55);
+                            opacity:0;
+                            transition:opacity 0.5s ease;
+                            border-radius:6px;
+                            z-index:1;
+                        "></div>
+                        <div style="position:relative;z-index:2;">
+                            <h2 class="tm-text-primary mb-3" style="font-size:1.3rem;">Akhir Orde Baru</h2>
+                            <p class="tm-intro-text" style="font-size:0.95rem;">
+                              Rezim Soeharto berkuasa selama 32 tahun dengan sistem pemerintahan otoriter yang membatasi kebebasan politik, pers, dan sipil rakyat Indonesia.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 mb-4 latar-card-wrap latar-fade" onclick="openLatarModal('krisis-moneter')" style="cursor:pointer;">
+                    <div class="latar-card" style="border:1px solid #333;border-radius:6px;padding:30px;height:100%;position:relative;overflow:hidden;">
+                        <div class="latar-card-overlay" style="
+                            position:absolute;
+                            top:0;left:0;right:0;bottom:0;
+                            background-image:url('img/krisis-moneter-1997.jpg');
+                            background-size:cover;
+                            background-position:center;
+                            opacity:0;
+                            transition:opacity 0.5s ease;
+                            border-radius:6px;
+                            z-index:0;
+                        "></div>
+                        <div class="latar-card-overlay-dim" style="
+                            position:absolute;
+                            top:0;left:0;right:0;bottom:0;
+                            background:rgba(0,0,0,0.55);
+                            opacity:0;
+                            transition:opacity 0.5s ease;
+                            border-radius:6px;
+                            z-index:1;
+                        "></div>
+                        <div style="position:relative;z-index:2;">
+                            <h2 class="tm-text-primary mb-3" style="font-size:1.3rem;">Krisis Moneter 1997</h2>
+                            <p class="tm-intro-text" style="font-size:0.95rem;">
+                              Krisis ekonomi Asia melanda Indonesia. Nilai rupiah anjlok drastis dari Rp2.500 menjadi Rp16.000 per dolar, inflasi melonjak, jutaan rakyat jatuh miskin.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 mb-4 latar-card-wrap latar-fade" onclick="openLatarModal('kkn')" style="cursor:pointer;">
+                    <div class="latar-card" style="border:1px solid #333;border-radius:6px;padding:30px;height:100%;position:relative;overflow:hidden;">
+                        <div class="latar-card-overlay" style="
+                            position:absolute;
+                            top:0;left:0;right:0;bottom:0;
+                            background-image:url('img/kkn.jpg');
+                            background-size:cover;
+                            background-position:center;
+                            opacity:0;
+                            transition:opacity 0.5s ease;
+                            border-radius:6px;
+                            z-index:0;
+                        "></div>
+                        <div class="latar-card-overlay-dim" style="
+                            position:absolute;
+                            top:0;left:0;right:0;bottom:0;
+                            background:rgba(0,0,0,0.55);
+                            opacity:0;
+                            transition:opacity 0.5s ease;
+                            border-radius:6px;
+                            z-index:1;
+                        "></div>
+                        <div style="position:relative;z-index:2;">
+                            <h2 class="tm-text-primary mb-3" style="font-size:1.3rem;">KKN Merajalela</h2>
+                            <p class="tm-intro-text" style="font-size:0.95rem;">
+                              Korupsi, Kolusi, dan Nepotisme mengakar di semua lini pemerintahan, menciptakan ketidakadilan sistemik yang memicu kemarahan rakyat.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div><!-- second row -->
+            
+            <div class="row tm-content-box"><!-- third row -->
+                <div class="col-lg-4 mb-4 latar-card-wrap latar-fade" onclick="openLatarModal('demonstrasi')" style="cursor:pointer;">
+                    <div class="latar-card" style="border:1px solid #333;border-radius:6px;padding:30px;height:100%;position:relative;overflow:hidden;">
+                        <div class="latar-card-overlay" style="
+                            position:absolute;
+                            top:0;left:0;right:0;bottom:0;
+                            background-image:url('img/demonstrasi-mahasiswa.jpg');
+                            background-size:cover;
+                            background-position:center;
+                            opacity:0;
+                            transition:opacity 0.5s ease;
+                            border-radius:6px;
+                            z-index:0;
+                        "></div>
+                        <div class="latar-card-overlay-dim" style="
+                            position:absolute;
+                            top:0;left:0;right:0;bottom:0;
+                            background:rgba(0,0,0,0.55);
+                            opacity:0;
+                            transition:opacity 0.5s ease;
+                            border-radius:6px;
+                            z-index:1;
+                        "></div>
+                        <div style="position:relative;z-index:2;">
+                            <h2 class="tm-text-primary mb-3" style="font-size:1.3rem;">Demonstrasi Mahasiswa</h2>
+                            <p class="tm-intro-text" style="font-size:0.95rem;">
+                              Mahasiswa dari berbagai universitas di seluruh Indonesia turun ke jalan menuntut reformasi total dan pengunduran diri Soeharto dari kursi kepresidenan.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 mb-4 latar-card-wrap latar-fade" onclick="openLatarModal('trisakti')" style="cursor:pointer;">
+                    <div class="latar-card" style="border:1px solid #333;border-radius:6px;padding:30px;height:100%;position:relative;overflow:hidden;">
+                        <div class="latar-card-overlay" style="
+                            position:absolute;
+                            top:0;left:0;right:0;bottom:0;
+                            background-image:url('img/trisakti.jpg');
+                            background-size:cover;
+                            background-position:center;
+                            opacity:0;
+                            transition:opacity 0.5s ease;
+                            border-radius:6px;
+                            z-index:0;
+                        "></div>
+                        <div class="latar-card-overlay-dim" style="
+                            position:absolute;
+                            top:0;left:0;right:0;bottom:0;
+                            background:rgba(0,0,0,0.55);
+                            opacity:0;
+                            transition:opacity 0.5s ease;
+                            border-radius:6px;
+                            z-index:1;
+                        "></div>
+                        <div style="position:relative;z-index:2;">
+                            <h2 class="tm-text-primary mb-3" style="font-size:1.3rem;">Tragedi Trisakti</h2>
+                            <p class="tm-intro-text" style="font-size:0.95rem;">
+                              12 Mei 1998, empat mahasiswa Universitas Trisakti gugur ditembak aparat. Elang Mulia Lesmana, Heri Hertanto, Hafidin Royan, dan Hendriawan Sie menjadi martir reformasi.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div><!-- third row -->
+
+        </div>
+      
+    </section>
+    
+    <section id="testimonials" class="tm-section-pad-top tm-parallax-2">      
+      <div class="container tm-testimonials-content">
+        <div class="row">
+          <div class="col-lg-12 tm-content-box text-center mb-5">
+            <h2 class="text-white text-center mb-3 tm-section-title">Perjalanan Reformasi</h2>
+            <div style="width:60px;height:3px;background:#cc0000;margin:0 auto 20px;"></div>
+            <p class="mx-auto tm-section-desc text-center" style="color:#ccc;">
+              Dari jatuhnya Orde Baru hingga konsolidasi demokrasi Indonesia.
+            </p>
+          </div>
+        </div>
+
+        <!-- Tree Root Timeline -->
+        <div class="tree-timeline">
+
+          <!-- Batang utama tengah -->
+          <div class="tree-trunk"></div>
+
+          <!-- 5 cabang / akar -->
+          <div class="tree-branch-wrap" data-side="left" style="top: 40px;">
+            <div class="tree-dot left"></div>
+            <div class="tree-card left">
+              <span class="tree-date">21 MEI 1998</span>
+              <h4>Soeharto Mundur</h4>
+              <p>Setelah 32 tahun berkuasa, Soeharto menyatakan pengunduran dirinya. Era Orde Baru berakhir dan lembaran baru demokrasi Indonesia dimulai.</p>
+            </div>
+          </div>
+
+          <div class="tree-branch-wrap" data-side="right" style="top: 220px;">
+            <div class="tree-dot right"></div>
+            <div class="tree-card right">
+              <span class="tree-date">1998 – 1999</span>
+              <h4>B.J. Habibie</h4>
+              <p>Wakil Presiden Habibie dilantik sebagai Presiden ke-3. Ia membebaskan tahanan politik, mencabut sensor pers, dan menggelar Pemilu 1999 yang demokratis.</p>
+            </div>
+          </div>
+
+          <div class="tree-branch-wrap" data-side="left" style="top: 400px;">
+            <div class="tree-dot left"></div>
+            <div class="tree-card left">
+              <span class="tree-date">7 JUNI 1999</span>
+              <h4>Pemilu Multipartai</h4>
+              <p>Indonesia menggelar pemilu multipartai pertama sejak 1955. Diikuti 48 partai politik, pemilu ini menjadi tonggak awal demokrasi reformasi.</p>
+            </div>
+          </div>
+
+          <div class="tree-branch-wrap" data-side="right" style="top: 580px;">
+            <div class="tree-dot right"></div>
+            <div class="tree-card right">
+              <span class="tree-date">1999 – 2001</span>
+              <h4>Abdurrahman Wahid (Gus Dur)</h4>
+              <p>Terpilih melalui Sidang MPR, Gus Dur membawa semangat pluralisme dan demokrasi. Ia membubarkan Departemen Penerangan, mengakui keberagaman, dan memperkuat fondasi civil society.</p>
+            </div>
+          </div>
+
+          <div class="tree-branch-wrap" data-side="left" style="top: 780px;">
+            <div class="tree-dot left"></div>
+            <div class="tree-card left">
+              <span class="tree-date">2001 – 2004</span>
+              <h4>Megawati Soekarnoputri</h4>
+              <p>Presiden perempuan pertama Indonesia. Masa pemerintahannya ditandai dengan upaya stabilisasi ekonomi, penguatan otonomi daerah, dan pembentukan KPK sebagai lembaga antikorupsi.</p>
+            </div>
+          </div>
+
+        </div><!-- end tree-timeline -->
+
+      </div>
+      <div class="tm-bg-overlay"></div>
+    </section>
+    
+
+    <!-- ===== DAMPAK REFORMASI 1998 ===== -->
+    <section id="gallery" style="background:#060608;padding:0;position:relative;overflow:hidden;">
+
+      <!-- Background grid texture -->
+      <div style="position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,0.02) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.02) 1px,transparent 1px);background-size:60px 60px;pointer-events:none;z-index:0;"></div>
+
+      <!-- ── HERO HEADER ── -->
+      <div style="position:relative;z-index:1;padding:100px 20px 60px;text-align:center;">
+        <p style="color:#888;font-size:0.7rem;letter-spacing:6px;text-transform:uppercase;margin:0 0 20px;font-family:'Inter',sans-serif;">— Analisis Historis —</p>
+        <h2 class="dampak-glitch" data-text="DAMPAK REFORMASI 1998" style="font-family:'Bebas Neue',cursive;font-size:clamp(2.5rem,8vw,6.5rem);line-height:1;margin:0 0 24px;letter-spacing:4px;color:#fff;position:relative;display:inline-block;">
+          DAMPAK REFORMASI 1998
+        </h2>
+        <p style="color:#aaa;font-size:1rem;max-width:600px;margin:0 auto 32px;font-family:'Inter',sans-serif;line-height:1.7;">Reformasi 1998 membawa perubahan fundamental — membuka era demokrasi sekaligus meninggalkan luka yang dalam bagi bangsa Indonesia.</p>
+        <!-- Toggle buttons -->
+        <div style="display:inline-flex;flex-wrap:wrap;justify-content:center;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:50px;padding:4px;gap:4px;">
+          <button id="btn-all" onclick="filterDampak('all')" style="padding:10px 28px;border-radius:50px;border:none;background:#cc0000;color:#fff;font-family:'Inter',sans-serif;font-size:0.8rem;font-weight:600;letter-spacing:1px;cursor:pointer;transition:all 0.3s;">SEMUA</button>
+          <button id="btn-pos" onclick="filterDampak('pos')" style="padding:10px 28px;border-radius:50px;border:none;background:transparent;color:#888;font-family:'Inter',sans-serif;font-size:0.8rem;font-weight:600;letter-spacing:1px;cursor:pointer;transition:all 0.3s;">✦ POSITIF</button>
+          <button id="btn-neg" onclick="filterDampak('neg')" style="padding:10px 28px;border-radius:50px;border:none;background:transparent;color:#888;font-family:'Inter',sans-serif;font-size:0.8rem;font-weight:600;letter-spacing:1px;cursor:pointer;transition:all 0.3s;">✦ NEGATIF</button>
+        </div>
+      </div>
+
+      <!-- ── SPLIT GRID ── -->
+      <div style="position:relative;z-index:1;padding:0 0 80px;">
+        <div class="container-fluid" style="max-width:1400px;margin:0 auto;padding:0 24px;">
+          <div id="dampak-grid" style="display:grid;grid-template-columns:1fr 1fr;gap:0;min-height:600px;">
+
+            <!-- ══ KOLOM KIRI: DAMPAK POSITIF ══ -->
+            <div id="col-pos" style="background:linear-gradient(160deg,#020d08 0%,#041a0e 50%,#020d08 100%);padding:60px 48px;border-right:1px solid rgba(255,255,255,0.06);position:relative;overflow:hidden;">
+              <!-- Ambient glow -->
+              <div style="position:absolute;top:-100px;left:-100px;width:400px;height:400px;background:radial-gradient(circle,rgba(0,200,100,0.08) 0%,transparent 70%);pointer-events:none;"></div>
+              <div style="position:absolute;bottom:-50px;right:-50px;width:300px;height:300px;background:radial-gradient(circle,rgba(0,150,255,0.06) 0%,transparent 70%);pointer-events:none;"></div>
+
+              <!-- Header positif -->
+              <div style="margin-bottom:48px;">
+                <div style="display:flex;align-items:center;gap:12px;margin-bottom:16px;">
+                  <div style="width:40px;height:2px;background:linear-gradient(90deg,#00c864,#0096ff);"></div>
+                  <span style="color:#00c864;font-size:0.65rem;letter-spacing:4px;font-family:'Inter',sans-serif;text-transform:uppercase;">01 — Dampak Positif</span>
+                </div>
+                <h3 style="font-family:'Bebas Neue',cursive;font-size:clamp(2.5rem,4vw,3.5rem);color:#fff;margin:0 0 12px;letter-spacing:3px;line-height:1;">CAHAYA<br><span style="color:#00c864;">REFORMASI</span></h3>
+                <p style="color:#556;font-size:0.85rem;font-family:'Inter',sans-serif;margin:0;line-height:1.6;">Perubahan yang membawa harapan dan kemajuan demokrasi Indonesia.</p>
+              </div>
+
+              <!-- Cards positif -->
+              <div style="display:flex;flex-direction:column;gap:16px;">
+
+                <div class="dampak-card dampak-pos" data-cat="pos" style="background:rgba(0,200,100,0.04);border:1px solid rgba(0,200,100,0.15);border-radius:16px;padding:24px 28px;cursor:default;transition:all 0.35s cubic-bezier(0.4,0,0.2,1);position:relative;overflow:hidden;">
+                  <div style="position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,#00c864,#0096ff);opacity:0;transition:opacity 0.35s;" class="card-top-line"></div>
+                  <div style="display:flex;align-items:flex-start;gap:16px;">
+                    <div style="width:44px;height:44px;background:rgba(0,200,100,0.1);border:1px solid rgba(0,200,100,0.2);border-radius:12px;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:1.3rem;">🕊️</div>
+                    <div>
+                      <h4 style="color:#e8f5ee;font-family:'Montserrat',sans-serif;font-weight:700;font-size:1rem;margin:0 0 8px;">Demokrasi Lebih Terbuka</h4>
+                      <p style="color:#6a8a72;font-size:0.83rem;line-height:1.65;margin:0;font-family:'Inter',sans-serif;">Pemilu bebas dan jujur digelar pertama kali sejak 1955. Rakyat bisa memilih pemimpin secara langsung tanpa tekanan rezim.</p>
+                    </div>
+                  </div>
+                  <div style="margin-top:14px;padding-top:14px;border-top:1px solid rgba(0,200,100,0.08);">
+                    <div style="display:flex;align-items:center;gap:8px;">
+                      <div style="flex:1;height:4px;background:rgba(0,200,100,0.1);border-radius:2px;overflow:hidden;"><div style="width:90%;height:100%;background:linear-gradient(90deg,#00c864,#0096ff);border-radius:2px;"></div></div>
+                      <span style="color:#00c864;font-size:0.7rem;font-family:'Inter',sans-serif;font-weight:600;">90%</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="dampak-card dampak-pos" data-cat="pos" style="background:rgba(0,200,100,0.04);border:1px solid rgba(0,200,100,0.15);border-radius:16px;padding:24px 28px;cursor:default;transition:all 0.35s cubic-bezier(0.4,0,0.2,1);position:relative;overflow:hidden;">
+                  <div style="position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,#00c864,#0096ff);opacity:0;transition:opacity 0.35s;" class="card-top-line"></div>
+                  <div style="display:flex;align-items:flex-start;gap:16px;">
+                    <div style="width:44px;height:44px;background:rgba(0,150,255,0.1);border:1px solid rgba(0,150,255,0.2);border-radius:12px;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:1.3rem;">📰</div>
+                    <div>
+                      <h4 style="color:#e8f5ee;font-family:'Montserrat',sans-serif;font-weight:700;font-size:1rem;margin:0 0 8px;">Kebebasan Pers Meningkat</h4>
+                      <p style="color:#6a8a72;font-size:0.83rem;line-height:1.65;margin:0;font-family:'Inter',sans-serif;">Sensor media dicabut. Ribuan media baru bermunculan. Pers menjadi pilar keempat demokrasi yang mengawasi kekuasaan.</p>
+                    </div>
+                  </div>
+                  <div style="margin-top:14px;padding-top:14px;border-top:1px solid rgba(0,200,100,0.08);">
+                    <div style="display:flex;align-items:center;gap:8px;">
+                      <div style="flex:1;height:4px;background:rgba(0,200,100,0.1);border-radius:2px;overflow:hidden;"><div style="width:85%;height:100%;background:linear-gradient(90deg,#00c864,#0096ff);border-radius:2px;"></div></div>
+                      <span style="color:#00c864;font-size:0.7rem;font-family:'Inter',sans-serif;font-weight:600;">85%</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="dampak-card dampak-pos" data-cat="pos" style="background:rgba(0,200,100,0.04);border:1px solid rgba(0,200,100,0.15);border-radius:16px;padding:24px 28px;cursor:default;transition:all 0.35s cubic-bezier(0.4,0,0.2,1);position:relative;overflow:hidden;">
+                  <div style="position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,#00c864,#0096ff);opacity:0;transition:opacity 0.35s;" class="card-top-line"></div>
+                  <div style="display:flex;align-items:flex-start;gap:16px;">
+                    <div style="width:44px;height:44px;background:rgba(0,200,100,0.1);border:1px solid rgba(0,200,100,0.2);border-radius:12px;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:1.3rem;">🏛️</div>
+                    <div>
+                      <h4 style="color:#e8f5ee;font-family:'Montserrat',sans-serif;font-weight:700;font-size:1rem;margin:0 0 8px;">Otonomi Daerah</h4>
+                      <p style="color:#6a8a72;font-size:0.83rem;line-height:1.65;margin:0;font-family:'Inter',sans-serif;">Desentralisasi memberi daerah wewenang mengelola pemerintahan dan sumber daya sendiri, mengurangi dominasi pusat.</p>
+                    </div>
+                  </div>
+                  <div style="margin-top:14px;padding-top:14px;border-top:1px solid rgba(0,200,100,0.08);">
+                    <div style="display:flex;align-items:center;gap:8px;">
+                      <div style="flex:1;height:4px;background:rgba(0,200,100,0.1);border-radius:2px;overflow:hidden;"><div style="width:75%;height:100%;background:linear-gradient(90deg,#00c864,#0096ff);border-radius:2px;"></div></div>
+                      <span style="color:#00c864;font-size:0.7rem;font-family:'Inter',sans-serif;font-weight:600;">75%</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="dampak-card dampak-pos" data-cat="pos" style="background:rgba(0,200,100,0.04);border:1px solid rgba(0,200,100,0.15);border-radius:16px;padding:24px 28px;cursor:default;transition:all 0.35s cubic-bezier(0.4,0,0.2,1);position:relative;overflow:hidden;">
+                  <div style="position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,#00c864,#0096ff);opacity:0;transition:opacity 0.35s;" class="card-top-line"></div>
+                  <div style="display:flex;align-items:flex-start;gap:16px;">
+                    <div style="width:44px;height:44px;background:rgba(0,150,255,0.1);border:1px solid rgba(0,150,255,0.2);border-radius:12px;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:1.3rem;">⚖️</div>
+                    <div>
+                      <h4 style="color:#e8f5ee;font-family:'Montserrat',sans-serif;font-weight:700;font-size:1rem;margin:0 0 8px;">Pembatasan Kekuasaan Presiden</h4>
+                      <p style="color:#6a8a72;font-size:0.83rem;line-height:1.65;margin:0;font-family:'Inter',sans-serif;">4 amandemen UUD 1945 membatasi masa jabatan presiden dan memperkuat hak asasi manusia secara konstitusional.</p>
+                    </div>
+                  </div>
+                  <div style="margin-top:14px;padding-top:14px;border-top:1px solid rgba(0,200,100,0.08);">
+                    <div style="display:flex;align-items:center;gap:8px;">
+                      <div style="flex:1;height:4px;background:rgba(0,200,100,0.1);border-radius:2px;overflow:hidden;"><div style="width:80%;height:100%;background:linear-gradient(90deg,#00c864,#0096ff);border-radius:2px;"></div></div>
+                      <span style="color:#00c864;font-size:0.7rem;font-family:'Inter',sans-serif;font-weight:600;">80%</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="dampak-card dampak-pos" data-cat="pos" style="background:rgba(0,200,100,0.04);border:1px solid rgba(0,200,100,0.15);border-radius:16px;padding:24px 28px;cursor:default;transition:all 0.35s cubic-bezier(0.4,0,0.2,1);position:relative;overflow:hidden;">
+                  <div style="position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,#00c864,#0096ff);opacity:0;transition:opacity 0.35s;" class="card-top-line"></div>
+                  <div style="display:flex;align-items:flex-start;gap:16px;">
+                    <div style="width:44px;height:44px;background:rgba(0,200,100,0.1);border:1px solid rgba(0,200,100,0.2);border-radius:12px;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:1.3rem;">🗳️</div>
+                    <div>
+                      <h4 style="color:#e8f5ee;font-family:'Montserrat',sans-serif;font-weight:700;font-size:1rem;margin:0 0 8px;">Munculnya Partai Politik Baru</h4>
+                      <p style="color:#6a8a72;font-size:0.83rem;line-height:1.65;margin:0;font-family:'Inter',sans-serif;">Sistem multipartai dibuka. 48 partai mengikuti Pemilu 1999 — tonggak awal pluralisme politik yang sesungguhnya.</p>
+                    </div>
+                  </div>
+                  <div style="margin-top:14px;padding-top:14px;border-top:1px solid rgba(0,200,100,0.08);">
+                    <div style="display:flex;align-items:center;gap:8px;">
+                      <div style="flex:1;height:4px;background:rgba(0,200,100,0.1);border-radius:2px;overflow:hidden;"><div style="width:70%;height:100%;background:linear-gradient(90deg,#00c864,#0096ff);border-radius:2px;"></div></div>
+                      <span style="color:#00c864;font-size:0.7rem;font-family:'Inter',sans-serif;font-weight:600;">70%</span>
+                    </div>
+                  </div>
+                </div>
+
+              </div><!-- end cards positif -->
+            </div><!-- end col-pos -->
+
+            <!-- ══ KOLOM KANAN: DAMPAK NEGATIF ══ -->
+            <div id="col-neg" style="background:linear-gradient(160deg,#0d0202 0%,#1a0404 50%,#0d0202 100%);padding:60px 48px;position:relative;overflow:hidden;">
+              <!-- Ambient glow -->
+              <div style="position:absolute;top:-100px;right:-100px;width:400px;height:400px;background:radial-gradient(circle,rgba(255,60,0,0.08) 0%,transparent 70%);pointer-events:none;"></div>
+              <div style="position:absolute;bottom:-50px;left:-50px;width:300px;height:300px;background:radial-gradient(circle,rgba(200,0,0,0.06) 0%,transparent 70%);pointer-events:none;"></div>
+
+              <!-- Header negatif -->
+              <div style="margin-bottom:48px;">
+                <div style="display:flex;align-items:center;gap:12px;margin-bottom:16px;">
+                  <div style="width:40px;height:2px;background:linear-gradient(90deg,#ff3c00,#cc0000);"></div>
+                  <span style="color:#ff3c00;font-size:0.65rem;letter-spacing:4px;font-family:'Inter',sans-serif;text-transform:uppercase;">02 — Dampak Negatif</span>
+                </div>
+                <h3 style="font-family:'Bebas Neue',cursive;font-size:clamp(2.5rem,4vw,3.5rem);color:#fff;margin:0 0 12px;letter-spacing:3px;line-height:1;">BAYANGAN<br><span style="color:#ff3c00;">REFORMASI</span></h3>
+                <p style="color:#665;font-size:0.85rem;font-family:'Inter',sans-serif;margin:0;line-height:1.6;">Harga yang harus dibayar dalam proses transisi demokrasi yang bergejolak.</p>
+              </div>
+
+              <!-- Cards negatif -->
+              <div style="display:flex;flex-direction:column;gap:16px;">
+
+                <div class="dampak-card dampak-neg" data-cat="neg" style="background:rgba(255,60,0,0.04);border:1px solid rgba(255,60,0,0.15);border-radius:16px;padding:24px 28px;cursor:default;transition:all 0.35s cubic-bezier(0.4,0,0.2,1);position:relative;overflow:hidden;">
+                  <div style="position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,#ff3c00,#cc0000);opacity:0;transition:opacity 0.35s;" class="card-top-line"></div>
+                  <div style="display:flex;align-items:flex-start;gap:16px;">
+                    <div style="width:44px;height:44px;background:rgba(255,60,0,0.1);border:1px solid rgba(255,60,0,0.2);border-radius:12px;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:1.3rem;">⚡</div>
+                    <div>
+                      <h4 style="color:#f5e8e8;font-family:'Montserrat',sans-serif;font-weight:700;font-size:1rem;margin:0 0 8px;">Instabilitas Politik</h4>
+                      <p style="color:#8a6a6a;font-size:0.83rem;line-height:1.65;margin:0;font-family:'Inter',sans-serif;">4 presiden berganti dalam 5 tahun pertama reformasi. Konflik elite politik menciptakan ketidakpastian yang menghambat pemulihan ekonomi.</p>
+                    </div>
+                  </div>
+                  <div style="margin-top:14px;padding-top:14px;border-top:1px solid rgba(255,60,0,0.08);">
+                    <div style="display:flex;align-items:center;gap:8px;">
+                      <div style="flex:1;height:4px;background:rgba(255,60,0,0.1);border-radius:2px;overflow:hidden;"><div style="width:85%;height:100%;background:linear-gradient(90deg,#ff3c00,#cc0000);border-radius:2px;"></div></div>
+                      <span style="color:#ff3c00;font-size:0.7rem;font-family:'Inter',sans-serif;font-weight:600;">85%</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="dampak-card dampak-neg" data-cat="neg" style="background:rgba(255,60,0,0.04);border:1px solid rgba(255,60,0,0.15);border-radius:16px;padding:24px 28px;cursor:default;transition:all 0.35s cubic-bezier(0.4,0,0.2,1);position:relative;overflow:hidden;">
+                  <div style="position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,#ff3c00,#cc0000);opacity:0;transition:opacity 0.35s;" class="card-top-line"></div>
+                  <div style="display:flex;align-items:flex-start;gap:16px;">
+                    <div style="width:44px;height:44px;background:rgba(200,0,0,0.1);border:1px solid rgba(200,0,0,0.2);border-radius:12px;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:1.3rem;">🔥</div>
+                    <div>
+                      <h4 style="color:#f5e8e8;font-family:'Montserrat',sans-serif;font-weight:700;font-size:1rem;margin:0 0 8px;">Konflik Sosial di Berbagai Daerah</h4>
+                      <p style="color:#8a6a6a;font-size:0.83rem;line-height:1.65;margin:0;font-family:'Inter',sans-serif;">Euforia kebebasan memicu konflik SARA di Ambon, Poso, dan Kalimantan — merenggut ribuan nyawa dan memaksa pengungsian massal.</p>
+                    </div>
+                  </div>
+                  <div style="margin-top:14px;padding-top:14px;border-top:1px solid rgba(255,60,0,0.08);">
+                    <div style="display:flex;align-items:center;gap:8px;">
+                      <div style="flex:1;height:4px;background:rgba(255,60,0,0.1);border-radius:2px;overflow:hidden;"><div style="width:80%;height:100%;background:linear-gradient(90deg,#ff3c00,#cc0000);border-radius:2px;"></div></div>
+                      <span style="color:#ff3c00;font-size:0.7rem;font-family:'Inter',sans-serif;font-weight:600;">80%</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="dampak-card dampak-neg" data-cat="neg" style="background:rgba(255,60,0,0.04);border:1px solid rgba(255,60,0,0.15);border-radius:16px;padding:24px 28px;cursor:default;transition:all 0.35s cubic-bezier(0.4,0,0.2,1);position:relative;overflow:hidden;">
+                  <div style="position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,#ff3c00,#cc0000);opacity:0;transition:opacity 0.35s;" class="card-top-line"></div>
+                  <div style="display:flex;align-items:flex-start;gap:16px;">
+                    <div style="width:44px;height:44px;background:rgba(255,60,0,0.1);border:1px solid rgba(255,60,0,0.2);border-radius:12px;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:1.3rem;">💸</div>
+                    <div>
+                      <h4 style="color:#f5e8e8;font-family:'Montserrat',sans-serif;font-weight:700;font-size:1rem;margin:0 0 8px;">Korupsi Masih Berlanjut</h4>
+                      <p style="color:#8a6a6a;font-size:0.83rem;line-height:1.65;margin:0;font-family:'Inter',sans-serif;">Otonomi daerah melahirkan "raja-raja kecil". Korupsi yang semula terpusat kini menyebar ke seluruh tingkat pemerintahan daerah.</p>
+                    </div>
+                  </div>
+                  <div style="margin-top:14px;padding-top:14px;border-top:1px solid rgba(255,60,0,0.08);">
+                    <div style="display:flex;align-items:center;gap:8px;">
+                      <div style="flex:1;height:4px;background:rgba(255,60,0,0.1);border-radius:2px;overflow:hidden;"><div style="width:90%;height:100%;background:linear-gradient(90deg,#ff3c00,#cc0000);border-radius:2px;"></div></div>
+                      <span style="color:#ff3c00;font-size:0.7rem;font-family:'Inter',sans-serif;font-weight:600;">90%</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="dampak-card dampak-neg" data-cat="neg" style="background:rgba(255,60,0,0.04);border:1px solid rgba(255,60,0,0.15);border-radius:16px;padding:24px 28px;cursor:default;transition:all 0.35s cubic-bezier(0.4,0,0.2,1);position:relative;overflow:hidden;">
+                  <div style="position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,#ff3c00,#cc0000);opacity:0;transition:opacity 0.35s;" class="card-top-line"></div>
+                  <div style="display:flex;align-items:flex-start;gap:16px;">
+                    <div style="width:44px;height:44px;background:rgba(200,0,0,0.1);border:1px solid rgba(200,0,0,0.2);border-radius:12px;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:1.3rem;">📉</div>
+                    <div>
+                      <h4 style="color:#f5e8e8;font-family:'Montserrat',sans-serif;font-weight:700;font-size:1rem;margin:0 0 8px;">Kesenjangan Ekonomi</h4>
+                      <p style="color:#8a6a6a;font-size:0.83rem;line-height:1.65;margin:0;font-family:'Inter',sans-serif;">Krisis moneter meninggalkan luka dalam. Rupiah anjlok, pengangguran melonjak, dan jutaan rakyat jatuh ke bawah garis kemiskinan.</p>
+                    </div>
+                  </div>
+                  <div style="margin-top:14px;padding-top:14px;border-top:1px solid rgba(255,60,0,0.08);">
+                    <div style="display:flex;align-items:center;gap:8px;">
+                      <div style="flex:1;height:4px;background:rgba(255,60,0,0.1);border-radius:2px;overflow:hidden;"><div style="width:75%;height:100%;background:linear-gradient(90deg,#ff3c00,#cc0000);border-radius:2px;"></div></div>
+                      <span style="color:#ff3c00;font-size:0.7rem;font-family:'Inter',sans-serif;font-weight:600;">75%</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="dampak-card dampak-neg" data-cat="neg" style="background:rgba(255,60,0,0.04);border:1px solid rgba(255,60,0,0.15);border-radius:16px;padding:24px 28px;cursor:default;transition:all 0.35s cubic-bezier(0.4,0,0.2,1);position:relative;overflow:hidden;">
+                  <div style="position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,#ff3c00,#cc0000);opacity:0;transition:opacity 0.35s;" class="card-top-line"></div>
+                  <div style="display:flex;align-items:flex-start;gap:16px;">
+                    <div style="width:44px;height:44px;background:rgba(255,60,0,0.1);border:1px solid rgba(255,60,0,0.2);border-radius:12px;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:1.3rem;">🔓</div>
+                    <div>
+                      <h4 style="color:#f5e8e8;font-family:'Montserrat',sans-serif;font-weight:700;font-size:1rem;margin:0 0 8px;">Lemahnya Penegakan Hukum</h4>
+                      <p style="color:#8a6a6a;font-size:0.83rem;line-height:1.65;margin:0;font-family:'Inter',sans-serif;">Transisi kekuasaan yang cepat melemahkan institusi hukum. Banyak pelanggar HAM dan koruptor lolos dari jerat hukum.</p>
+                    </div>
+                  </div>
+                  <div style="margin-top:14px;padding-top:14px;border-top:1px solid rgba(255,60,0,0.08);">
+                    <div style="display:flex;align-items:center;gap:8px;">
+                      <div style="flex:1;height:4px;background:rgba(255,60,0,0.1);border-radius:2px;overflow:hidden;"><div style="width:70%;height:100%;background:linear-gradient(90deg,#ff3c00,#cc0000);border-radius:2px;"></div></div>
+                      <span style="color:#ff3c00;font-size:0.7rem;font-family:'Inter',sans-serif;font-weight:600;">70%</span>
+                    </div>
+                  </div>
+                </div>
+
+              </div><!-- end cards negatif -->
+            </div><!-- end col-neg -->
+
+          </div><!-- end dampak-grid -->
+        </div>
+      </div>
+
+      <!-- ── QUOTE PENUTUP ── -->
+      <div style="position:relative;z-index:1;background:#030303;border-top:1px solid rgba(255,255,255,0.05);padding:80px 20px;text-align:center;">
+        <div style="max-width:700px;margin:0 auto;">
+          <div style="font-size:3rem;margin-bottom:16px;opacity:0.3;">"</div>
+          <blockquote style="font-family:'Montserrat',sans-serif;font-size:clamp(1rem,2.5vw,1.4rem);color:#ccc;font-weight:600;line-height:1.7;margin:0 0 24px;font-style:italic;">
+            Reformasi bukan sekadar pergantian rezim, melainkan perubahan mendasar dalam cara bangsa ini memandang kekuasaan, keadilan, dan martabat manusia.
+          </blockquote>
+          <div style="width:40px;height:2px;background:linear-gradient(90deg,#00c864,#cc0000);margin:0 auto 16px;"></div>
+          <p style="color:#555;font-size:0.8rem;letter-spacing:3px;font-family:'Inter',sans-serif;text-transform:uppercase;">Amien Rais — Tokoh Reformasi 1998</p>
+        </div>
+      </div>
+
+    </section>
+    <!-- ===== END DAMPAK REFORMASI ===== -->
+
+
+    <!-- Era Reformasi -->
+    <section id="era-reformasi" style="background:#080808;padding:100px 0;position:relative;overflow:hidden;">
+      <!-- Ambient -->
+      <div style="position:absolute;top:10%;right:10%;width:400px;height:400px;background:radial-gradient(circle,rgba(255,45,45,0.05) 0%,transparent 70%);pointer-events:none;filter:blur(60px);"></div>
+
+      <div class="container" style="position:relative;z-index:1;">
+
+        <!-- Header -->
+        <div style="margin-bottom:80px;max-width:700px;">
+          <p style="color:#ff2d2d;font-size:0.65rem;letter-spacing:6px;margin:0 0 16px;font-family:'Inter',sans-serif;text-transform:uppercase;">Kajian Historis</p>
+          <h2 style="font-family:'Montserrat',sans-serif;font-weight:900;font-size:clamp(2.5rem,6vw,4.5rem);color:#f5f5f5;margin:0 0 20px;line-height:1;letter-spacing:-2px;">Kebebasan Pers<br><span style="color:#ff2d2d;font-style:italic;">di Indonesia</span></h2>
+          <div style="display:flex;align-items:center;gap:16px;margin-bottom:20px;">
+            <div style="width:60px;height:1px;background:#ff2d2d;"></div>
+            <p style="color:#555;font-size:0.8rem;font-family:'Inter',sans-serif;margin:0;letter-spacing:1px;">Dari Reformasi 1998 sampai Era Prabowo</p>
+          </div>
+          <p style="color:#777;font-size:0.95rem;line-height:1.8;font-family:'Inter',sans-serif;margin:0;">Kebebasan pers merupakan salah satu perubahan terbesar setelah jatuhnya pemerintahan Orde Baru tahun 1998. Pada masa sebelum reformasi, media di Indonesia sangat dikontrol pemerintah. Setelah reformasi dimulai, masyarakat mulai mendapatkan kebebasan dalam menyampaikan pendapat dan media menjadi lebih terbuka.</p>
+        </div>
+
+        <!-- Timeline Era -->
+        <div style="display:flex;flex-direction:column;gap:2px;">
+
+          <div class="era-row era-habibie" style="border:1px solid rgba(255,255,255,0.05);background:rgba(255,255,255,0.02);">
+            <div class="era-label era-label-habibie" style="background:linear-gradient(135deg,rgba(255,45,45,0.12) 0%,rgba(255,45,45,0.04) 100%);padding:36px 28px;border-right:1px solid rgba(255,45,45,0.1);position:relative;overflow:hidden;">
+              <!-- Overlay foto -->
+              <div class="era-photo-overlay" style="
+                position:absolute;top:0;left:0;right:0;bottom:0;
+                background-image:url('img/BJ.Habibi.jfif');
+                background-size:cover;
+                background-position:center top;
+                opacity:0;
+                transition:opacity 0.5s ease;
+                z-index:0;
+              "></div>
+              <!-- Dim layer -->
+              <div class="era-photo-dim" style="
+                position:absolute;top:0;left:0;right:0;bottom:0;
+                background:rgba(0,0,0,0.6);
+                opacity:0;
+                transition:opacity 0.5s ease;
+                z-index:2;
+              "></div>
+              <!-- Teks -->
+              <div style="position:relative;z-index:2;">
+                <p style="color:#ff2d2d;font-size:0.65rem;letter-spacing:3px;margin:0 0 8px;font-family:'Inter',sans-serif;text-transform:uppercase;">1998 — 1999</p>
+                <h4 style="color:#f5f5f5;font-family:'Montserrat',sans-serif;font-weight:800;font-size:1.1rem;margin:0;line-height:1.3;">B.J. Habibie</h4>
+                <p style="color:#555;font-size:0.75rem;margin:6px 0 0;font-family:'Inter',sans-serif;transition:color 0.4s ease;" class="era-label-sub">Awal Kebebasan Pers</p>
+              </div>
+            </div>
+            <div class="era-content">
+              <p style="color:#888;font-size:0.88rem;line-height:1.8;margin:0 0 16px;font-family:'Inter',sans-serif;">Habibie menjadi presiden setelah pengunduran diri Suharto. Pemerintah mulai membuka kebebasan bagi media dan masyarakat.</p>
+              <div style="display:flex;flex-wrap:wrap;gap:8px;">
+                <span style="background:rgba(255,45,45,0.08);border:1px solid rgba(255,45,45,0.15);color:#ff2d2d;font-size:0.72rem;padding:4px 12px;border-radius:20px;font-family:'Inter',sans-serif;">Dihapus sistem pembredelan</span>
+                <span style="background:rgba(255,45,45,0.08);border:1px solid rgba(255,45,45,0.15);color:#ff2d2d;font-size:0.72rem;padding:4px 12px;border-radius:20px;font-family:'Inter',sans-serif;">UU Pers 1999</span>
+                <span style="background:rgba(255,45,45,0.08);border:1px solid rgba(255,45,45,0.15);color:#ff2d2d;font-size:0.72rem;padding:4px 12px;border-radius:20px;font-family:'Inter',sans-serif;">Media baru bermunculan</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="era-row era-photo-row" style="border:1px solid rgba(255,255,255,0.05);background:rgba(255,255,255,0.02);">
+            <div class="era-label" style="background:linear-gradient(135deg,rgba(255,255,255,0.05) 0%,rgba(255,255,255,0.01) 100%);padding:36px 28px;border-right:1px solid rgba(255,255,255,0.05);position:relative;overflow:hidden;">
+              <div class="era-photo-overlay" style="position:absolute;top:0;left:0;right:0;bottom:0;background-image:url('img/Gusdur.jfif');background-size:cover;background-position:center top;opacity:0;transition:opacity 0.5s ease;z-index:0;"></div>
+              <div class="era-photo-dim" style="position:absolute;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,0.6);opacity:0;transition:opacity 0.5s ease;z-index:1;"></div>
+              <div style="position:relative;z-index:2;">
+                <p style="color:#888;font-size:0.65rem;letter-spacing:3px;margin:0 0 8px;font-family:'Inter',sans-serif;text-transform:uppercase;">1999 — 2001</p>
+                <h4 style="color:#f5f5f5;font-family:'Montserrat',sans-serif;font-weight:800;font-size:1.1rem;margin:0;line-height:1.3;">Gus Dur</h4>
+                <p style="color:#555;font-size:0.75rem;margin:6px 0 0;font-family:'Inter',sans-serif;" class="era-label-sub">Pers Semakin Bebas</p>
+              </div>
+            </div>
+            <div class="era-content">
+              <p style="color:#888;font-size:0.88rem;line-height:1.8;margin:0 0 16px;font-family:'Inter',sans-serif;">Kebebasan pers semakin kuat. Wartawan dapat mengkritik pemerintah secara langsung. Pers mulai aktif mengungkap kasus korupsi dan pelanggaran HAM.</p>
+              <div style="display:flex;flex-wrap:wrap;gap:8px;">
+                <span style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);color:#888;font-size:0.72rem;padding:4px 12px;border-radius:20px;font-family:'Inter',sans-serif;">Kritik bebas</span>
+                <span style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);color:#888;font-size:0.72rem;padding:4px 12px;border-radius:20px;font-family:'Inter',sans-serif;">Ungkap korupsi</span>
+                <span style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);color:#888;font-size:0.72rem;padding:4px 12px;border-radius:20px;font-family:'Inter',sans-serif;">Demokrasi terbuka</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="era-row era-photo-row" style="border:1px solid rgba(255,255,255,0.05);background:rgba(255,255,255,0.02);">
+            <div class="era-label" style="background:linear-gradient(135deg,rgba(255,255,255,0.05) 0%,rgba(255,255,255,0.01) 100%);padding:36px 28px;border-right:1px solid rgba(255,255,255,0.05);position:relative;overflow:hidden;">
+              <div class="era-photo-overlay" style="position:absolute;top:0;left:0;right:0;bottom:0;background-image:url('img/Megawati.jfif');background-size:cover;background-position:center top;opacity:0;transition:opacity 0.5s ease;z-index:0;"></div>
+              <div class="era-photo-dim" style="position:absolute;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,0.6);opacity:0;transition:opacity 0.5s ease;z-index:1;"></div>
+              <div style="position:relative;z-index:2;">
+                <p style="color:#888;font-size:0.65rem;letter-spacing:3px;margin:0 0 8px;font-family:'Inter',sans-serif;text-transform:uppercase;">2001 — 2004</p>
+                <h4 style="color:#f5f5f5;font-family:'Montserrat',sans-serif;font-weight:800;font-size:1.1rem;margin:0;line-height:1.3;">Megawati</h4>
+                <p style="color:#555;font-size:0.75rem;margin:6px 0 0;font-family:'Inter',sans-serif;" class="era-label-sub">Stabilitas & Tantangan</p>
+              </div>
+            </div>
+            <div class="era-content">
+              <p style="color:#888;font-size:0.88rem;line-height:1.8;margin:0 0 16px;font-family:'Inter',sans-serif;">Kebebasan pers tetap berjalan, tetapi muncul tantangan baru. Media mulai berkembang secara profesional. Internet mulai berkembang sebagai media informasi baru.</p>
+              <div style="display:flex;flex-wrap:wrap;gap:8px;">
+                <span style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);color:#888;font-size:0.72rem;padding:4px 12px;border-radius:20px;font-family:'Inter',sans-serif;">Media profesional</span>
+                <span style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);color:#888;font-size:0.72rem;padding:4px 12px;border-radius:20px;font-family:'Inter',sans-serif;">Internet mulai berkembang</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="era-row era-photo-row" style="border:1px solid rgba(255,255,255,0.05);background:rgba(255,255,255,0.02);">
+            <div class="era-label" style="background:linear-gradient(135deg,rgba(255,255,255,0.05) 0%,rgba(255,255,255,0.01) 100%);padding:36px 28px;border-right:1px solid rgba(255,255,255,0.05);position:relative;overflow:hidden;">
+              <div class="era-photo-overlay" style="position:absolute;top:0;left:0;right:0;bottom:0;background-image:url('img/SBY.jfif');background-size:cover;background-position:center top;opacity:0;transition:opacity 0.5s ease;z-index:0;"></div>
+              <div class="era-photo-dim" style="position:absolute;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,0.6);opacity:0;transition:opacity 0.5s ease;z-index:1;"></div>
+              <div style="position:relative;z-index:2;">
+                <p style="color:#888;font-size:0.65rem;letter-spacing:3px;margin:0 0 8px;font-family:'Inter',sans-serif;text-transform:uppercase;">2004 — 2014</p>
+                <h4 style="color:#f5f5f5;font-family:'Montserrat',sans-serif;font-weight:800;font-size:1.1rem;margin:0;line-height:1.3;">SBY</h4>
+                <p style="color:#555;font-size:0.75rem;margin:6px 0 0;font-family:'Inter',sans-serif;" class="era-label-sub">Era Digital Berkembang</p>
+              </div>
+            </div>
+            <div class="era-content">
+              <p style="color:#888;font-size:0.88rem;line-height:1.8;margin:0 0 16px;font-family:'Inter',sans-serif;">Media online berkembang pesat. Media sosial mulai digunakan masyarakat. Informasi dapat disebarkan dengan sangat cepat.</p>
+              <div style="display:flex;flex-wrap:wrap;gap:8px;">
+                <span style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);color:#888;font-size:0.72rem;padding:4px 12px;border-radius:20px;font-family:'Inter',sans-serif;">Media online</span>
+                <span style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);color:#888;font-size:0.72rem;padding:4px 12px;border-radius:20px;font-family:'Inter',sans-serif;">Media sosial</span>
+                <span style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);color:#888;font-size:0.72rem;padding:4px 12px;border-radius:20px;font-family:'Inter',sans-serif;">Hoaks mulai muncul</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="era-row era-photo-row" style="border:1px solid rgba(255,255,255,0.05);background:rgba(255,255,255,0.02);">
+            <div class="era-label" style="background:linear-gradient(135deg,rgba(255,255,255,0.05) 0%,rgba(255,255,255,0.01) 100%);padding:36px 28px;border-right:1px solid rgba(255,255,255,0.05);position:relative;overflow:hidden;">
+              <div class="era-photo-overlay" style="position:absolute;top:0;left:0;right:0;bottom:0;background-image:url('img/jakowi.jpg');background-size:cover;background-position:center top;opacity:0;transition:opacity 0.5s ease;z-index:0;"></div>
+              <div class="era-photo-dim" style="position:absolute;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,0.6);opacity:0;transition:opacity 0.5s ease;z-index:1;"></div>
+              <div style="position:relative;z-index:2;">
+                <p style="color:#888;font-size:0.65rem;letter-spacing:3px;margin:0 0 8px;font-family:'Inter',sans-serif;text-transform:uppercase;">2014 — 2024</p>
+                <h4 style="color:#f5f5f5;font-family:'Montserrat',sans-serif;font-weight:800;font-size:1.1rem;margin:0;line-height:1.3;">Jokowi</h4>
+                <p style="color:#555;font-size:0.75rem;margin:6px 0 0;font-family:'Inter',sans-serif;" class="era-label-sub">Era Media Sosial</p>
+              </div>
+            </div>
+            <div class="era-content">
+              <p style="color:#888;font-size:0.88rem;line-height:1.8;margin:0 0 16px;font-family:'Inter',sans-serif;">Media sosial menjadi sumber informasi utama. YouTube, Instagram, TikTok, dan X menjadi media penyebaran berita. Polarisasi politik meningkat.</p>
+              <div style="display:flex;flex-wrap:wrap;gap:8px;">
+                <span style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);color:#888;font-size:0.72rem;padding:4px 12px;border-radius:20px;font-family:'Inter',sans-serif;">TikTok & YouTube</span>
+                <span style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);color:#888;font-size:0.72rem;padding:4px 12px;border-radius:20px;font-family:'Inter',sans-serif;">Jurnalisme digital</span>
+                <span style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);color:#888;font-size:0.72rem;padding:4px 12px;border-radius:20px;font-family:'Inter',sans-serif;">Polarisasi meningkat</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="era-row era-photo-row" style="border:1px solid rgba(255,45,45,0.12);background:rgba(255,45,45,0.03);">
+            <div class="era-label" style="background:linear-gradient(135deg,rgba(255,45,45,0.15) 0%,rgba(255,45,45,0.05) 100%);padding:36px 28px;border-right:1px solid rgba(255,45,45,0.1);position:relative;overflow:hidden;">
+              <div class="era-photo-overlay" style="position:absolute;top:0;left:0;right:0;bottom:0;background-image:url('img/Prabowok.jpg');background-size:cover;background-position:center top;opacity:0;transition:opacity 0.5s ease;z-index:0;"></div>
+              <div class="era-photo-dim" style="position:absolute;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,0.6);opacity:0;transition:opacity 0.5s ease;z-index:1;"></div>
+              <div style="position:relative;z-index:2;">
+                <p style="color:#ff2d2d;font-size:0.65rem;letter-spacing:3px;margin:0 0 8px;font-family:'Inter',sans-serif;text-transform:uppercase;">2024 — Sekarang</p>
+                <h4 style="color:#f5f5f5;font-family:'Montserrat',sans-serif;font-weight:800;font-size:1.1rem;margin:0;line-height:1.3;">Prabowo</h4>
+                <p style="color:#ff2d2d;font-size:0.75rem;margin:6px 0 0;font-family:'Inter',sans-serif;" class="era-label-sub">Era Baru</p>
+              </div>
+            </div>
+            <div class="era-content">
+              <p style="color:#888;font-size:0.88rem;line-height:1.8;margin:0 0 16px;font-family:'Inter',sans-serif;">Era baru kepemimpinan Indonesia. Tantangan kebebasan pers di era AI dan disinformasi digital semakin kompleks. Warisan reformasi terus diuji.</p>
+              <div style="display:flex;flex-wrap:wrap;gap:8px;">
+                <span style="background:rgba(255,45,45,0.08);border:1px solid rgba(255,45,45,0.15);color:#ff2d2d;font-size:0.72rem;padding:4px 12px;border-radius:20px;font-family:'Inter',sans-serif;">Era AI</span>
+                <span style="background:rgba(255,45,45,0.08);border:1px solid rgba(255,45,45,0.15);color:#ff2d2d;font-size:0.72rem;padding:4px 12px;border-radius:20px;font-family:'Inter',sans-serif;">Disinformasi digital</span>
+                <span style="background:rgba(255,45,45,0.08);border:1px solid rgba(255,45,45,0.15);color:#ff2d2d;font-size:0.72rem;padding:4px 12px;border-radius:20px;font-family:'Inter',sans-serif;">Warisan reformasi diuji</span>
+              </div>
+            </div>
+          </div>
+
+        </div><!-- end timeline -->
+      </div>
+    </section>
+
+
+    <!-- Galeri -->
+    <section id="contact" style="background:#050505;padding:100px 0;position:relative;overflow:hidden;">
+      <div style="position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,0.015) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.015) 1px,transparent 1px);background-size:40px 40px;pointer-events:none;"></div>
+      <div class="container" style="position:relative;z-index:1;">
+        <div style="text-align:center;margin-bottom:60px;">
+          <p style="color:#cc0000;font-size:0.7rem;letter-spacing:5px;text-transform:uppercase;margin:0 0 16px;font-family:'Inter',sans-serif;">— Dokumentasi Visual —</p>
+          <h2 style="font-family:'Bebas Neue',cursive;font-size:clamp(2.5rem,6vw,4rem);color:#fff;margin:0 0 16px;letter-spacing:3px;">GALERI REFORMASI 1998</h2>
+          <div style="width:60px;height:2px;background:#cc0000;margin:0 auto;"></div>
+        </div>
+        <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:16px;">
+          <a href="#" class="tm-gallery-item" onclick="openGaleriModal('img/reformasi1998.jpg','Reformasi 1998','Gelombang demonstrasi mahasiswa yang menuntut reformasi total dan pengunduran diri Presiden Soeharto pada Mei 1998.');return false;" style="width:280px;flex-shrink:0;">
+            <div style="border-radius:12px;overflow:hidden;border:1px solid rgba(255,255,255,0.06);position:relative;aspect-ratio:4/3;background:#111;">
+              <img src="img/reformasi1998.jpg" alt="Reformasi 1998" style="width:100%;height:100%;object-fit:cover;transition:transform 0.4s ease;">
+              <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,0.7) 0%,transparent 60%);pointer-events:none;"></div>
+              <p style="position:absolute;bottom:16px;left:16px;color:#fff;font-family:'Inter',sans-serif;font-size:0.8rem;font-weight:600;margin:0;pointer-events:none;">Reformasi 1998</p>
+            </div>
+          </a>
+          <a href="#" class="tm-gallery-item" onclick="openGaleriModal('img/demonstrasi-mahasiswa.jpg','Demonstrasi Mahasiswa','Ribuan mahasiswa dari berbagai universitas turun ke jalan, menduduki gedung DPR/MPR dan menuntut Soeharto mundur dari jabatan presiden.');return false;" style="width:280px;flex-shrink:0;">
+            <div style="border-radius:12px;overflow:hidden;border:1px solid rgba(255,255,255,0.06);position:relative;aspect-ratio:4/3;background:#111;">
+              <img src="img/demonstrasi-mahasiswa.jpg" alt="Demonstrasi Mahasiswa" style="width:100%;height:100%;object-fit:cover;transition:transform 0.4s ease;">
+              <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,0.7) 0%,transparent 60%);pointer-events:none;"></div>
+              <p style="position:absolute;bottom:16px;left:16px;color:#fff;font-family:'Inter',sans-serif;font-size:0.8rem;font-weight:600;margin:0;pointer-events:none;">Demonstrasi Mahasiswa</p>
+            </div>
+          </a>
+          <a href="#" class="tm-gallery-item" onclick="openGaleriModal('img/trisakti.jpg','Tragedi Trisakti','12 Mei 1998 — Empat mahasiswa Universitas Trisakti gugur ditembak aparat saat demonstrasi damai. Peristiwa ini menjadi titik balik yang mempercepat jatuhnya Orde Baru.');return false;" style="width:280px;flex-shrink:0;">
+            <div style="border-radius:12px;overflow:hidden;border:1px solid rgba(255,255,255,0.06);position:relative;aspect-ratio:4/3;background:#111;">
+              <img src="img/trisakti.jpg" alt="Tragedi Trisakti" style="width:100%;height:100%;object-fit:cover;transition:transform 0.4s ease;">
+              <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,0.7) 0%,transparent 60%);pointer-events:none;"></div>
+              <p style="position:absolute;bottom:16px;left:16px;color:#fff;font-family:'Inter',sans-serif;font-size:0.8rem;font-weight:600;margin:0;pointer-events:none;">Tragedi Trisakti</p>
+            </div>
+          </a>
+          <a href="#" class="tm-gallery-item" onclick="openGaleriModal('img/krisis-moneter-1997.jpg','Krisis Moneter 1997','Krisis ekonomi Asia 1997 menghantam Indonesia dengan keras. Nilai rupiah anjlok dari Rp2.500 menjadi Rp16.000 per dolar, memicu inflasi dan kemiskinan massal.');return false;" style="width:280px;flex-shrink:0;">
+            <div style="border-radius:12px;overflow:hidden;border:1px solid rgba(255,255,255,0.06);position:relative;aspect-ratio:4/3;background:#111;">
+              <img src="img/krisis-moneter-1997.jpg" alt="Krisis Moneter" style="width:100%;height:100%;object-fit:cover;transition:transform 0.4s ease;">
+              <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,0.7) 0%,transparent 60%);pointer-events:none;"></div>
+              <p style="position:absolute;bottom:16px;left:16px;color:#fff;font-family:'Inter',sans-serif;font-size:0.8rem;font-weight:600;margin:0;pointer-events:none;">Krisis Moneter 1997</p>
+            </div>
+          </a>
+          <a href="#" class="tm-gallery-item" onclick="openGaleriModal('img/pemilu-1999.png','Pemilu 1999','Pemilu multipartai pertama sejak 1955. Diikuti 48 partai politik, pemilu ini menjadi tonggak awal demokrasi reformasi dan simbol kebebasan rakyat Indonesia.');return false;" style="width:280px;flex-shrink:0;">
+            <div style="border-radius:12px;overflow:hidden;border:1px solid rgba(255,255,255,0.06);position:relative;aspect-ratio:4/3;background:#111;">
+              <img src="img/pemilu-1999.png" alt="Pemilu 1999" style="width:100%;height:100%;object-fit:cover;transition:transform 0.4s ease;">
+              <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,0.7) 0%,transparent 60%);pointer-events:none;"></div>
+              <p style="position:absolute;bottom:16px;left:16px;color:#fff;font-family:'Inter',sans-serif;font-size:0.8rem;font-weight:600;margin:0;pointer-events:none;">Pemilu 1999</p>
+            </div>
+          </a>
+          <a href="#" class="tm-gallery-item" onclick="openGaleriModal('img/era-reformasi.png','Era Reformasi','Babak baru Indonesia pasca-Orde Baru. Era reformasi membawa kebebasan pers, otonomi daerah, pemilu langsung, dan amandemen konstitusi yang mendasar.');return false;" style="width:280px;flex-shrink:0;">
+            <div style="border-radius:12px;overflow:hidden;border:1px solid rgba(255,255,255,0.06);position:relative;aspect-ratio:4/3;background:#111;">
+              <img src="img/era-reformasi.png" alt="Era Reformasi" style="width:100%;height:100%;object-fit:cover;transition:transform 0.4s ease;">
+              <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,0.7) 0%,transparent 60%);pointer-events:none;"></div>
+              <p style="position:absolute;bottom:16px;left:16px;color:#fff;font-family:'Inter',sans-serif;font-size:0.8rem;font-weight:600;margin:0;pointer-events:none;">Era Reformasi</p>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="tm-footer-main">
+
+      <!-- Garis merah atas -->
+      <div class="tm-footer-bar"></div>
+
+      <div class="tm-footer-inner">
+
+        <!-- Kiri: identitas proyek -->
+        <div class="tm-footer-brand">
+          <p class="tm-footer-title">REFORMASI 1998</p>
+          <p class="tm-footer-sub">Perjalanan Demokrasi Indonesia</p>
+          <p class="tm-footer-class">XI SIJA 1</p>
+        </div>
+
+        <!-- Tengah: divider vertikal -->
+        <div class="tm-footer-divider"></div>
+
+        <!-- Kanan: tim developer -->
+        <div class="tm-footer-team">
+          <p class="tm-footer-team-label">Dikembangkan oleh</p>
+          <ul class="tm-footer-devs">
+            <li>
+              <span class="tm-footer-dev-num">05</span>
+              <span class="tm-footer-dev-name">Arez Dito Yudha Pratama</span>
+            </li>
+            <li>
+              <span class="tm-footer-dev-num">06</span>
+              <span class="tm-footer-dev-name">Arsya Bagus Pradana</span>
+            </li>
+            <li>
+              <span class="tm-footer-dev-num">27</span>
+              <span class="tm-footer-dev-name">Raihan Galih Bintang Pratama</span>
+            </li>
+          </ul>
+        </div>
+
+      </div>
+
+      <!-- Bawah: copyright -->
+      <div class="tm-footer-copy">
+        <span>&copy; 2026 Reformasi 1998</span>
+        <span class="tm-footer-copy-sep">—</span>
+        <span>Tugas Sejarah Indonesia</span>
+      </div>
+
+    </footer>
+
+    <!-- Modal Latar Belakang -->
+    <div id="latar-modal" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.85);z-index:99999;align-items:center;justify-content:center;padding:20px;">
+      <div style="background:#111;border:1px solid #333;border-radius:16px;max-width:700px;width:100%;max-height:90vh;overflow-y:auto;position:relative;">
+        <!-- Tombol X close — z-index tinggi, di luar content agar tidak tertutup -->
+        <button id="latar-modal-close" type="button" style="
+          position:sticky;
+          top:12px;
+          float:right;
+          margin:12px 12px 0 0;
+          background:rgba(255,255,255,0.12);
+          border:1px solid rgba(255,255,255,0.2);
+          color:#fff;
+          width:36px;
+          height:36px;
+          border-radius:50%;
+          cursor:pointer;
+          font-size:1.3rem;
+          line-height:1;
+          z-index:99999;
+          display:flex;
+          align-items:center;
+          justify-content:center;
+          transition:background 0.2s ease;
+        ">&#x2715;</button>
+        <div id="latar-modal-content" style="padding:16px 40px 40px;clear:both;"></div>
+      </div>
+    </div>
+
+    <!-- Modal Galeri -->
+    <div id="galeri-modal" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.85);z-index:99999;align-items:center;justify-content:center;padding:20px;">
+      <div style="background:#111;border:1px solid #333;border-radius:16px;max-width:700px;width:100%;max-height:90vh;overflow-y:auto;position:relative;">
+        <button id="galeri-modal-close" type="button" style="
+          position:sticky;
+          top:12px;
+          float:right;
+          margin:12px 12px 0 0;
+          background:rgba(255,255,255,0.12);
+          border:1px solid rgba(255,255,255,0.2);
+          color:#fff;
+          width:36px;
+          height:36px;
+          border-radius:50%;
+          cursor:pointer;
+          font-size:1.3rem;
+          line-height:1;
+          z-index:99999;
+          display:flex;
+          align-items:center;
+          justify-content:center;
+          transition:background 0.2s ease;
+        ">&#x2715;</button>
+        <div id="galeri-modal-content" style="padding:16px 40px 40px;clear:both;"></div>
+      </div>
+    </div>
+
+    <!-- Sidebar JS -->
+    <script>
+      function tmToggleSidebar() {
+        var sidebar  = document.getElementById('tm-sidebar');
+        var overlay  = document.getElementById('tm-sidebar-overlay');
+        var btn      = document.getElementById('tm-hamburger');
+        var isOpen   = sidebar.classList.contains('open');
+
+        if (isOpen) {
+          sidebar.classList.remove('open');
+          overlay.classList.remove('open');
+          btn.classList.remove('is-open');
+          document.body.style.overflow = '';
+        } else {
+          sidebar.classList.add('open');
+          overlay.classList.add('open');
+          btn.classList.add('is-open');
+          document.body.style.overflow = 'hidden';
+        }
+      }
+
+      function tmCloseSidebar() {
+        document.getElementById('tm-sidebar').classList.remove('open');
+        document.getElementById('tm-sidebar-overlay').classList.remove('open');
+        document.getElementById('tm-hamburger').classList.remove('is-open');
+        document.body.style.overflow = '';
+      }
+
+      // Overlay klik tutup sidebar
+      document.getElementById('tm-sidebar-overlay').addEventListener('click', tmCloseSidebar);
+
+      // Tutup sidebar saat tekan Escape
+      document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') tmCloseSidebar();
+      });
+    </script>
+
+    <script src="js/jquery-1.9.1.min.js"></script>
+    <script src="js/easing.min.js"></script>
+    <script src="js/jquery.singlePageNav.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="slick/slick.min.js"></script>
+    <script src="magnific-popup/jquery.magnific-popup.min.js"></script>
+    <!-- Lenis Smooth Scroll -->
+    <script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
+    <script>
+    $(document).ready(function() {
+
+      // ===== LENIS SMOOTH SCROLL =====
+      var lenis;
+      try {
+        lenis = new Lenis({ duration: 1.2, easing: function(t){ return t < 0.5 ? 4*t*t*t : (t-1)*(2*t-2)*(2*t-2)+1; }, smooth: true });
+        function raf(time) { lenis.raf(time); requestAnimationFrame(raf); }
+        requestAnimationFrame(raf);
+      } catch(e) {}
+
+      // Navbar scroll
+      // ===== NAVBAR SCROLL STATE =====
+      $(window).scroll(function(){
+        if($(document).scrollTop() > 120) {
+          $('.tm-navbar').addClass("scroll");
+        } else {
+          $('.tm-navbar').removeClass("scroll");
+        }
+        // Scroll progress bar
+        var scrollTop = $(document).scrollTop();
+        var docHeight = $(document).height() - $(window).height();
+        var progress = (scrollTop / docHeight) * 100;
+        $('#scroll-progress').css('width', progress + '%');
+      });
+
+      // ===== SCROLLSPY — active nav link mengikuti section =====
+      var spySections = [
+        { id: 'whatwedo',      sel: '[href="#whatwedo"]' },
+        { id: 'testimonials',  sel: '[href="#testimonials"]' },
+        { id: 'gallery',       sel: '[href="#gallery"]' },
+        { id: 'era-reformasi', sel: '[href="#era-reformasi"]' },
+        { id: 'contact',       sel: '[href="#contact"]' }
+      ];
+
+      function setActiveNav(activeId) {
+        $('.tm-nav-link').removeClass('current');
+        $('.tm-sidebar-link').removeClass('active');
+        spySections.forEach(function(s) {
+          if (s.id === activeId) {
+            $('.tm-nav-link' + s.sel).addClass('current');
+            $('.tm-sidebar-link' + s.sel).addClass('active');
+          }
+        });
+      }
+
+      // IntersectionObserver: section yang masuk viewport dari atas
+      var spyObserver = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+          if (entry.isIntersecting) {
+            setActiveNav(entry.target.id);
+          }
+        });
+      }, { rootMargin: '-15% 0px -70% 0px', threshold: 0 });
+
+      spySections.forEach(function(s) {
+        var el = document.getElementById(s.id);
+        if (el) spyObserver.observe(el);
+      });
+
+      // ===== SMOOTH SCROLL saat klik nav link =====
+      $(document).on('click', '.tm-nav-link, .tm-sidebar-link', function(e) {
+        var href = $(this).attr('href');
+        if (!href || href.charAt(0) !== '#') return;
+        var target = document.getElementById(href.slice(1));
+        if (!target) return;
+        e.preventDefault();
+        if (lenis) {
+          lenis.scrollTo(target, { offset: -80, duration: 1.2 });
+        } else {
+          window.scrollTo({ top: target.getBoundingClientRect().top + window.pageYOffset - 80, behavior: 'smooth' });
+        }
+      });
+
+      // Magnific popup dinonaktifkan — diganti modal custom
+      // $('.tm-gallery-item').magnificPopup({ type: 'image', gallery: { enabled: true } });
+
+      // ===== MODAL GALERI =====
+      window.openGaleriModal = function(imgSrc, title, desc) {
+        var html =
+          '<img src="' + imgSrc + '" style="width:100%;height:280px;object-fit:cover;border-radius:8px;margin-bottom:24px;display:block;">' +
+          '<h3 style="color:#fff;font-family:Montserrat,sans-serif;font-weight:800;font-size:1.5rem;margin:0 0 16px;">' + title + '</h3>' +
+          '<p style="color:#aaa;font-family:Inter,sans-serif;font-size:0.95rem;line-height:1.8;margin:0;">' + desc + '</p>';
+        $('#galeri-modal-content').html(html);
+        $('#galeri-modal').css('display', 'flex');
+        document.body.style.overflow = 'hidden';
+      };
+
+      window.closeGaleriModal = function() {
+        $('#galeri-modal').hide();
+        document.body.style.overflow = '';
+      };
+
+      $('#galeri-modal-close').on('click', function() { closeGaleriModal(); });
+
+      $('#galeri-modal').on('click', function(e) {
+        if ($(e.target).is('#galeri-modal')) closeGaleriModal();
+      });
+
+      $(document).on('keydown', function(e) {
+        if (e.key === 'Escape') closeGaleriModal();
+      });
+
+      // ===== DAMPAK CARD HOVER =====
+      $(document).on('mouseenter', '.dampak-card', function() {
+        $(this).css({ 'transform': 'translateY(-6px) scale(1.01)', 'box-shadow': '' });
+        var isPos = $(this).hasClass('dampak-pos');
+        if (isPos) {
+          $(this).css('box-shadow', '0 12px 40px rgba(0,200,100,0.15), 0 0 0 1px rgba(0,200,100,0.25)');
+        } else {
+          $(this).css('box-shadow', '0 12px 40px rgba(255,60,0,0.15), 0 0 0 1px rgba(255,60,0,0.25)');
+        }
+        $(this).find('.card-top-line').css('opacity', '1');
+      }).on('mouseleave', '.dampak-card', function() {
+        $(this).css({ 'transform': '', 'box-shadow': '' });
+        $(this).find('.card-top-line').css('opacity', '0');
+      });
+
+      // ===== TOGGLE FILTER =====
+      window.filterDampak = function(type) {
+        $('#btn-all, #btn-pos, #btn-neg').css({ 'background': 'transparent', 'color': '#888' });
+        $('#btn-' + type).css({ 'background': '#cc0000', 'color': '#fff' });
+
+        var isMobile = $(window).width() < 768;
+
+        if (type === 'all') {
+          $('#col-pos, #col-neg').show();
+          $('#dampak-grid').css('grid-template-columns', isMobile ? '1fr' : '1fr 1fr');
+        } else if (type === 'pos') {
+          $('#col-pos').show();
+          $('#col-neg').hide();
+          $('#dampak-grid').css('grid-template-columns', '1fr');
+        } else {
+          $('#col-pos').hide();
+          $('#col-neg').show();
+          $('#dampak-grid').css('grid-template-columns', '1fr');
+        }
+      };
+
+      // ===== SCROLL REVEAL =====
+      var revealObserver = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+          if (entry.isIntersecting) {
+            entry.target.style.opacity = '1';
+            entry.target.style.transform = 'translateY(0)';
+          }
+        });
+      }, { threshold: 0.1 });
+
+      document.querySelectorAll('.dampak-card').forEach(function(el, i) {
+        el.style.opacity = '0';
+        el.style.transform = 'translateY(30px)';
+        el.style.transition = 'opacity 0.5s ease ' + (i * 0.08) + 's, transform 0.5s ease ' + (i * 0.08) + 's, box-shadow 0.35s ease, border-color 0.35s ease';
+        revealObserver.observe(el);
+      });
+
+      // ===== MODAL LATAR BELAKANG =====
+      var latarData = {
+        'akhir-orde-baru': {
+          video: 'video/akhir-orde-baru.mp4',
+          title: 'Akhir Orde Baru',
+          body: 'Rezim Soeharto berkuasa selama 32 tahun (1966–1998) dengan sistem pemerintahan otoriter yang membatasi kebebasan politik, pers, dan sipil rakyat Indonesia. Kekuasaan terpusat di tangan presiden dan militer, tanpa ruang bagi oposisi.'
+        },
+        'krisis-moneter': {
+          video: 'video/krisis-moneter.mp4',
+          title: 'Krisis Moneter 1997',
+          body: 'Krisis ekonomi Asia melanda Indonesia. Nilai rupiah anjlok drastis dari Rp2.500 menjadi Rp16.000 per dolar AS. Inflasi melonjak, jutaan rakyat jatuh miskin, dan kepercayaan terhadap pemerintah runtuh.'
+        },
+        'kkn': {
+          video: 'video/kkn.mp4',
+          title: 'KKN Merajalela',
+          body: 'Korupsi, Kolusi, dan Nepotisme mengakar di semua lini pemerintahan. Keluarga dan kroni Soeharto menguasai sektor-sektor strategis ekonomi, menciptakan ketidakadilan sistemik yang memicu kemarahan rakyat.'
+        },
+        'demonstrasi': {
+          video: 'video/demo mahasiswa.mp4',
+          title: 'Demonstrasi Mahasiswa',
+          body: 'Mahasiswa dari berbagai universitas di seluruh Indonesia turun ke jalan menuntut reformasi total dan pengunduran diri Soeharto. Gerakan ini menjadi kekuatan moral yang menggerakkan perubahan sejarah.'
+        },
+        'trisakti': {
+          video: 'video/trisakti1.mp4',
+          title: 'Tragedi Trisakti',
+          body: '12 Mei 1998, empat mahasiswa Universitas Trisakti gugur ditembak aparat: Elang Mulia Lesmana, Heri Hertanto, Hafidin Royan, dan Hendriawan Sie. Peristiwa ini memicu gelombang demonstrasi yang lebih besar dan mempercepat jatuhnya Soeharto.'
+        }
+      };
+
+      window.openLatarModal = function(key) {
+        var d = latarData[key];
+        if (!d) return;
+
+        var mediaHtml;
+        if (d.video) {
+          // Video: autoplay, muted, loop, tanpa controls agar tidak ada link/UI browser
+          mediaHtml = '<video autoplay muted loop playsinline ' +
+            'style="width:100%;height:220px;object-fit:cover;border-radius:8px;margin-bottom:24px;display:block;">' +
+            '<source src="' + d.video + '" type="video/mp4">' +
+            '</video>';
+        } else {
+          mediaHtml = '<img src="' + d.img + '" style="width:100%;height:220px;object-fit:cover;border-radius:8px;margin-bottom:24px;">';
+        }
+
+        var html = mediaHtml +
+          '<h3 style="color:#fff;font-family:Montserrat,sans-serif;font-weight:800;font-size:1.5rem;margin:0 0 16px;">' + d.title + '</h3>' +
+          '<p style="color:#aaa;font-family:Inter,sans-serif;font-size:0.95rem;line-height:1.8;margin:0;">' + d.body + '</p>';
+
+        $('#latar-modal-content').html(html);
+        $('#latar-modal').css('display', 'flex');
+      };
+
+      window.closeLatarModal = function() {
+        // Stop video saat modal ditutup agar tidak terus berjalan di background
+        var vid = document.querySelector('#latar-modal-content video');
+        if (vid) { vid.pause(); vid.src = ''; }
+        $('#latar-modal').hide();
+      };
+
+      // Tombol X close — bind lewat JS agar tidak konflik
+      $('#latar-modal-close').on('click', function(e) {
+        e.stopPropagation();
+        closeLatarModal();
+      });
+
+      // Klik overlay gelap (bukan inner box) juga tutup modal
+      $('#latar-modal').on('click', function(e) {
+        if ($(e.target).is('#latar-modal')) closeLatarModal();
+      });
+
+      // Escape key tutup modal
+      $(document).on('keydown', function(e) {
+        if (e.key === 'Escape' && $('#latar-modal').is(':visible')) closeLatarModal();
+      });
+
+    });
+    </script>
+
+  </body>
+</html>
