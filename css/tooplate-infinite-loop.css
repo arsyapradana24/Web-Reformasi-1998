@@ -95,6 +95,151 @@ blockquote {
   background-color: #aa0000;
 }
 
+/* ===== TREE TIMELINE STYLES ===== */
+.tree-timeline {
+  position: relative;
+  min-height: 1600px;
+  padding: 40px 0;
+  margin: 0 auto;
+  max-width: 1200px;
+}
+
+.tree-trunk {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  bottom: 0;
+  width: 4px;
+  background: linear-gradient(180deg, #cc0000 0%, #ff4444 50%, #cc0000 100%);
+  transform: translateX(-50%);
+  box-shadow: 0 0 20px rgba(204, 0, 0, 0.3);
+  z-index: 1;
+}
+
+.tree-branch-wrap {
+  position: absolute;
+  width: 100%;
+  left: 0;
+  right: 0;
+}
+
+.tree-dot {
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  background: #cc0000;
+  border: 3px solid #1a1a1a;
+  border-radius: 50%;
+  box-shadow: 0 0 0 4px rgba(204, 0, 0, 0.2), 0 0 20px rgba(204, 0, 0, 0.4);
+  z-index: 3;
+  top: 24px;
+  left: calc(50% - 8px);
+}
+
+.tree-dot.left {
+  /* positioning handled by parent */
+}
+
+.tree-dot.right {
+  /* positioning handled by parent */
+}
+
+.tree-card {
+  position: absolute;
+  background: rgba(20, 20, 20, 0.95);
+  border: 1px solid rgba(204, 0, 0, 0.3);
+  border-radius: 12px;
+  padding: 24px;
+  backdrop-filter: blur(10px);
+  width: 420px;
+  z-index: 2;
+  top: 0;
+}
+
+.tree-card.left {
+  right: 50%;
+  margin-right: 200px;
+  text-align: right;
+}
+
+.tree-card.left::before {
+  content: '' !important;
+  position: absolute !important;
+  top: 32px !important;
+  right: -200px !important;
+  width: 192px !important;
+  height: 2px !important;
+  background: #cc0000 !important;
+}
+
+.tree-card.right {
+  left: 50%;
+  margin-left: 200px;
+  text-align: left;
+}
+
+.tree-card.right::before {
+  content: '' !important;
+  position: absolute !important;
+  top: 32px !important;
+  left: -200px !important;
+  width: 192px !important;
+  height: 2px !important;
+  background: #cc0000 !important;
+}
+
+/* Desktop only - override mobile */
+@media (min-width: 768px) {
+  .tree-card.left::before {
+    content: '' !important;
+    position: absolute !important;
+    top: 32px !important;
+    right: -200px !important;
+    width: 192px !important;
+    height: 2px !important;
+    background: #cc0000 !important;
+    display: block !important;
+  }
+
+  .tree-card.right::before {
+    content: '' !important;
+    position: absolute !important;
+    top: 32px !important;
+    left: -200px !important;
+    width: 192px !important;
+    height: 2px !important;
+    background: #cc0000 !important;
+    display: block !important;
+  }
+}
+
+.tree-card .tree-date {
+  display: inline-block;
+  color: #cc0000;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+  font-family: 'Inter', sans-serif;
+}
+
+.tree-card h4 {
+  color: #fff;
+  font-size: 1.3rem;
+  font-weight: 800;
+  margin: 0 0 12px;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.tree-card p {
+  color: #aaa;
+  font-size: 0.9rem;
+  line-height: 1.7;
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+}
+
 /* Navbar */
 
 .tm-navbar {
