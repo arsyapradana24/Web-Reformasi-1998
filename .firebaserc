@@ -1,0 +1,15 @@
+{
+  "projects": {
+    "default": "masa-reformasi1998"
+  },
+  "targets": {
+    "masa-reformasi1998": {
+      "hosting": {
+        "masa-reformasi1998": [
+          "masa-reformasi1998"
+        ]
+      }
+    }
+  },
+  "etags": {}
+}
