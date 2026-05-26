@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -10,14 +10,13 @@
     <link rel="stylesheet" href="slick/slick-theme.css">
     <link rel="stylesheet" href="magnific-popup/magnific-popup.css">
     <link rel="stylesheet" href="css/bootstrap.min.css" />
-    <link rel="stylesheet" href="css/tooplate-infinite-loop.css?v=20250525" />
+    <link rel="stylesheet" href="css/tooplate-infinite-loop.css?v=20260526b" />
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet" />
     <style>
       .tm-hero-title {
         font-family: 'Bebas Neue', cursive !important;
         letter-spacing: 4px;
         text-shadow: none !important;
-        will-change: transform;
       }
       .tm-hero-title-split {  
         background: linear-gradient(
@@ -82,10 +81,7 @@
         will-change: auto;
       }
 
-      /* Smooth timeline cards */
-      .tree-branch-wrap {
-        will-change: transform, opacity;
-      }
+      /* Smooth timeline cards — will-change dihapus karena terlalu banyak GPU layer */
 
       /* Smooth image overlay */
       .latar-card-overlay, .latar-card-overlay-dim {
@@ -131,65 +127,52 @@
 
       /* ===== MOBILE TIMELINE ===== */
       @media (max-width: 767px) {
+        /* Timeline container: flow normal, bukan absolute */
         .tree-timeline {
           min-height: unset !important;
           padding: 20px 16px 40px !important;
           margin: 20px auto !important;
           max-width: 100% !important;
-        }
-        .tree-trunk {
-          display: block !important;
-          left: 50% !important;
-          transform: translateX(-50%) !important;
-          width: 2px !important;
-          background: #cc0000 !important;
-        }
-        .tree-branch-wrap {
-          position: relative !important;
-          top: auto !important;
-          left: auto !important;
-          width: 100% !important;
-          height: auto !important;
           display: flex !important;
-          align-items: flex-start !important;
-          margin-bottom: 40px !important;
+          flex-direction: column !important;
+          gap: 0 !important;
         }
-        .tree-dot {
+        /* Sembunyikan batang tengah, ganti dengan garis kiri */
+        .tree-timeline > div[style*="position:absolute;left:50%"] {
+          display: none !important;
+        }
+        /* Setiap item timeline */
+        .tree-timeline > div[style*="position:absolute;top:"] {
           position: relative !important;
           top: auto !important;
           left: auto !important;
           right: auto !important;
-          transform: none !important;
-          flex-shrink: 0 !important;
-          margin-top: 16px !important;
-          margin-right: 14px !important;
-          margin-left: 14px !important;
+          width: 100% !important;
+          padding-left: 36px !important;
+          margin-bottom: 20px !important;
+          border-left: 2px solid #cc0000 !important;
         }
-        .tree-card {
+        /* Titik bulat di kiri */
+        .tree-timeline > div[style*="position:absolute;top:"] > div[style*="position:absolute;left:calc(50%"] {
+          position: absolute !important;
+          left: -7px !important;
+          top: 14px !important;
+          transform: none !important;
+          width: 12px !important;
+          height: 12px !important;
+        }
+        /* Kartu konten */
+        .tree-timeline > div[style*="position:absolute;top:"] > div[style*="position:absolute;right:"],
+        .tree-timeline > div[style*="position:absolute;top:"] > div[style*="position:absolute;left:calc(50% + 40px)"] {
           position: relative !important;
           top: auto !important;
           left: auto !important;
           right: auto !important;
-          transform: none !important;
-          width: calc(50% - 50px) !important;
-          padding: 14px !important;
-        }
-        .tree-card.left {
-          order: -1 !important;
-          text-align: left !important;
-          border-left: 3px solid #cc0000 !important;
-        }
-        .tree-card.right {
-          text-align: left !important;
-          border-left: 3px solid #cc0000 !important;
-        }
-        .tree-branch-wrap[data-side="left"] {
-          flex-direction: row-reverse !important;
-          justify-content: flex-end !important;
-        }
-        .tree-branch-wrap[data-side="right"] {
-          flex-direction: row !important;
-          justify-content: flex-end !important;
+          width: 100% !important;
+          margin: 0 !important;
+          border-left: none !important;
+          border-radius: 8px !important;
+          padding: 16px !important;
         }
       }
       /* ===== DAMPAK REFORMASI STYLES ===== */
@@ -491,6 +474,7 @@
         clip-path: polygon(0 30%, 100% 30%, 100% 50%, 0 50%);
         transform: translateX(-3px);
         animation: glitch1 4s infinite;
+        animation-play-state: paused;
         opacity: 0.6;
       }
       .dampak-glitch::after {
@@ -498,7 +482,14 @@
         clip-path: polygon(0 60%, 100% 60%, 100% 75%, 0 75%);
         transform: translateX(3px);
         animation: glitch2 4s infinite;
+        animation-play-state: paused;
         opacity: 0.6;
+      }
+      .dampak-glitch.glitch-active::before {
+        animation-play-state: running;
+      }
+      .dampak-glitch.glitch-active::after {
+        animation-play-state: running;
       }
       @keyframes glitch1 {
         0%, 90%, 100% { transform: translateX(0); opacity: 0; }
@@ -595,12 +586,10 @@
     <section id="infinite" class="text-white tm-font-big tm-parallax" style="position:relative;overflow:hidden;">
 
       <!-- Video Background -->
-      <video autoplay muted loop playsinline id="hero-video" style="
+      <video autoplay muted loop playsinline id="hero-video" preload="metadata" style="
         position:absolute;
-        top:50%;left:50%;
-        min-width:100%;min-height:100%;
-        width:auto;height:auto;
-        transform:translate(-50%,-50%);
+        top:0; left:0;
+        width:100%; height:100%;
         object-fit:cover;
         z-index:0;
         opacity:40%;
@@ -1142,7 +1131,7 @@
         <p style="color:#666;font-size:0.75rem;font-style:italic;margin:0 0 60px;max-width:900px;font-family:'Inter',sans-serif;"><strong>Sumber:</strong> <a href="https://scholar.google.com/scholar?q=Hill+Press+New+Order+Indonesia" target="_blank" style="color:#333;text-decoration:underline;text-decoration-style:dotted;text-underline-offset:2px;transition:all 0.3s ease;" onmouseover="this.style.color='#cc0000';this.style.textDecorationStyle='solid';" onmouseout="this.style.color='#333';this.style.textDecorationStyle='dotted';">Hill, D.T. (1994). The Press in New Order Indonesia. UWA Press</a> | <a href="https://scholar.google.com/scholar?q=Tapsell+Media+Power+Indonesia" target="_blank" style="color:#333;text-decoration:underline;text-decoration-style:dotted;text-underline-offset:2px;transition:all 0.3s ease;" onmouseover="this.style.color='#cc0000';this.style.textDecorationStyle='solid';" onmouseout="this.style.color='#333';this.style.textDecorationStyle='dotted';">Tapsell, R. (2017). Media Power in Indonesia. Rowman & Littlefield</a></p>
 
         <!-- Timeline Era -->
-        <div style="display:flex;flex-direction:column;gap:2px;">
+        <div style="display:flex;flex-direction:column;gap:20px;">
 
           <div class="era-row era-habibie" style="border:1px solid rgba(255,255,255,0.05);background:rgba(255,255,255,0.02);">
             <div class="era-label era-label-habibie" style="background:linear-gradient(135deg,rgba(255,45,45,0.12) 0%,rgba(255,45,45,0.04) 100%);padding:36px 28px;border-right:1px solid rgba(255,45,45,0.1);position:relative;overflow:hidden;">
@@ -1555,33 +1544,33 @@
     <script src="js/bootstrap.min.js"></script>
     <script src="slick/slick.min.js"></script>
     <script src="magnific-popup/jquery.magnific-popup.min.js"></script>
-    <!-- Lenis Smooth Scroll -->
-    <script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
     <script>
     $(document).ready(function() {
 
-      // ===== LENIS SMOOTH SCROLL =====
-      var lenis;
-      try {
-        lenis = new Lenis({ duration: 1.2, easing: function(t){ return t < 0.5 ? 4*t*t*t : (t-1)*(2*t-2)*(2*t-2)+1; }, smooth: true });
-        function raf(time) { lenis.raf(time); requestAnimationFrame(raf); }
-        requestAnimationFrame(raf);
-      } catch(e) {}
+      // ===== SMOOTH SCROLL — native, ringan =====
+      // Lenis dinonaktifkan karena memberatkan scroll
+      var lenis = null;
 
-      // Navbar scroll
-      // ===== NAVBAR SCROLL STATE =====
-      $(window).scroll(function(){
-        if($(document).scrollTop() > 120) {
-          $('.tm-navbar').addClass("scroll");
-        } else {
-          $('.tm-navbar').removeClass("scroll");
+      // Navbar scroll — pakai rAF throttle agar tidak berat
+      var ticking = false;
+      window.addEventListener('scroll', function() {
+        if (!ticking) {
+          requestAnimationFrame(function() {
+            var scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            if (scrollTop > 120) {
+              document.getElementById('tmNav').classList.add('scroll');
+            } else {
+              document.getElementById('tmNav').classList.remove('scroll');
+            }
+            // Scroll progress bar
+            var docHeight = document.documentElement.scrollHeight - window.innerHeight;
+            var progress = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+            document.getElementById('scroll-progress').style.width = progress + '%';
+            ticking = false;
+          });
+          ticking = true;
         }
-        // Scroll progress bar
-        var scrollTop = $(document).scrollTop();
-        var docHeight = $(document).height() - $(window).height();
-        var progress = (scrollTop / docHeight) * 100;
-        $('#scroll-progress').css('width', progress + '%');
-      });
+      }, { passive: true });
 
       // ===== SCROLLSPY — active nav link mengikuti section =====
       var spySections = [
@@ -1617,18 +1606,15 @@
         if (el) spyObserver.observe(el);
       });
 
-      // ===== SMOOTH SCROLL saat klik nav link =====
+      // ===== SMOOTH SCROLL saat klik nav link — native =====
       $(document).on('click', '.tm-nav-link, .tm-sidebar-link', function(e) {
         var href = $(this).attr('href');
         if (!href || href.charAt(0) !== '#') return;
         var target = document.getElementById(href.slice(1));
         if (!target) return;
         e.preventDefault();
-        if (lenis) {
-          lenis.scrollTo(target, { offset: -80, duration: 1.2 });
-        } else {
-          window.scrollTo({ top: target.getBoundingClientRect().top + window.pageYOffset - 80, behavior: 'smooth' });
-        }
+        var top = target.getBoundingClientRect().top + window.pageYOffset - 80;
+        window.scrollTo({ top: top, behavior: 'smooth' });
       });
 
       // Magnific popup dinonaktifkan — diganti modal custom
@@ -1695,6 +1681,21 @@
           $('#dampak-grid').css('grid-template-columns', '1fr');
         }
       };
+
+      // ===== GLITCH ANIMATION — aktif hanya saat visible =====
+      var glitchEl = document.querySelector('.dampak-glitch');
+      if (glitchEl) {
+        var glitchObserver = new IntersectionObserver(function(entries) {
+          entries.forEach(function(entry) {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('glitch-active');
+            } else {
+              entry.target.classList.remove('glitch-active');
+            }
+          });
+        }, { threshold: 0.1 });
+        glitchObserver.observe(glitchEl);
+      }
 
       // ===== SCROLL REVEAL =====
       var revealObserver = new IntersectionObserver(function(entries) {
@@ -1789,6 +1790,65 @@
       });
 
     });
+    </script>
+
+    <!-- ===== MOBILE TIMELINE FIX ===== -->
+    <script>
+    (function() {
+      function fixTimelineMobile() {
+        var isMobile = window.innerWidth <= 767;
+        var timeline = document.querySelector('.tree-timeline');
+        if (!timeline) return;
+
+        // Batang tengah (child pertama)
+        var trunk = timeline.querySelector('div[style*="position:absolute;left:50%"]');
+        if (trunk) {
+          if (isMobile) {
+            trunk.style.cssText = 'position:absolute;left:20px;top:0;bottom:0;width:2px;background:linear-gradient(180deg,#cc0000 0%,#ff4444 50%,#cc0000 100%);box-shadow:0 0 10px rgba(204,0,0,0.3);z-index:1;';
+          } else {
+            trunk.style.cssText = 'position:absolute;left:50%;top:0;bottom:0;width:2px;background:linear-gradient(180deg,#cc0000 0%,#ff4444 50%,#cc0000 100%);transform:translateX(-50%);box-shadow:0 0 10px rgba(204,0,0,0.3);z-index:1;';
+          }
+        }
+
+        // Semua item timeline (semua child kecuali batang)
+        var items = timeline.querySelectorAll('div[style*="position:absolute;top:"]');
+        items.forEach(function(item) {
+          if (isMobile) {
+            // Ubah wrapper item jadi relative flow
+            item.style.cssText = 'position:relative;top:auto;left:auto;right:auto;width:100%;padding-left:44px;padding-right:12px;margin-bottom:20px;box-sizing:border-box;';
+
+            // Titik bulat (child pertama item)
+            var dot = item.querySelector('div[style*="position:absolute;left:calc(50%"]');
+            if (dot) {
+              dot.style.cssText = 'position:absolute;left:14px;top:16px;width:12px;height:12px;background:#cc0000;border:2px solid #1a1a1a;border-radius:50%;box-shadow:0 0 0 3px rgba(204,0,0,0.2);z-index:3;';
+            }
+
+            // Kartu konten (child kedua item — bisa kiri atau kanan)
+            var cards = item.querySelectorAll('div[style*="position:absolute"]');
+            cards.forEach(function(card) {
+              if (card !== dot) {
+                card.style.cssText = 'position:relative;top:auto;left:auto;right:auto;width:100%;max-width:100%;background:rgba(20,20,25,0.92);border:1px solid rgba(255,255,255,0.1);border-left:4px solid #cc0000;border-radius:8px;padding:14px 16px;text-align:left;box-sizing:border-box;';
+              }
+            });
+          } else {
+            // Kembalikan ke style asli — biarkan inline style yang sudah ada
+            // Tidak perlu reset karena style asli sudah ada di atribut style HTML
+            item.removeAttribute('data-mobile-fixed');
+          }
+        });
+
+        // Container timeline
+        if (isMobile) {
+          timeline.style.cssText = 'position:relative;min-height:unset;padding:20px 0 40px;margin:0 auto;max-width:100%;display:flex;flex-direction:column;';
+        } else {
+          timeline.style.cssText = 'position:relative;min-height:1180px;padding:40px 0;margin:0 auto;max-width:1200px;';
+        }
+      }
+
+      // Jalankan saat load dan resize
+      document.addEventListener('DOMContentLoaded', fixTimelineMobile);
+      window.addEventListener('resize', fixTimelineMobile);
+    })();
     </script>
 
   </body>

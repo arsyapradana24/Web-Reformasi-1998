@@ -15,6 +15,22 @@ html {
   box-sizing: border-box;
 }
 
+/* ===== PERFORMANCE OPTIMIZATIONS ===== */
+/* Hindari repaint saat scroll pada section panjang */
+#whatwedo, #gallery, #era-reformasi {
+  contain: layout style;
+}
+
+/* Aktifkan GPU layer hanya untuk elemen yang benar-benar bergerak */
+.tm-navbar {
+  will-change: transform;
+}
+
+/* Nonaktifkan pointer-events pada overlay dekoratif */
+.tm-bg-overlay {
+  pointer-events: none;
+}
+
 body {
   font-family: "Raleway", sans-serif;
   font-size: 1.2em;
@@ -29,8 +45,11 @@ body {
 }
 
 /* Smooth semua transisi link dan elemen interaktif */
-a, button, input, textarea, .btn, .nav-link, .galeri-card, .dr-card, .latar-card {
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+a, button, input, textarea {
+  transition: color 0.3s ease, background-color 0.3s ease, border-color 0.3s ease, opacity 0.3s ease;
+}
+.btn, .nav-link, .galeri-card, .dr-card, .latar-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease, opacity 0.3s ease;
 }
 
 /* Cursor pointer untuk semua elemen klikable */
@@ -150,7 +169,6 @@ blockquote {
   border: 1px solid rgba(204, 0, 0, 0.3);
   border-radius: 12px;
   padding: 24px;
-  backdrop-filter: blur(10px);
   width: 420px;
   z-index: 2;
   top: 0;
@@ -260,11 +278,9 @@ blockquote {
   max-width: 1200px;
   margin: 0 auto;
   padding: 10px 24px;
-  background: rgba(10, 10, 10, 0.85);
+  background: rgba(10, 10, 10, 0.92);
   border: 1px solid rgba(255,255,255,0.08);
   border-radius: 14px;
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
 }
 
 .tm-navbar.scroll {
@@ -459,9 +475,7 @@ blockquote {
   border: 1px solid rgba(204, 0, 0, 0.5);
   padding: 16px 28px;
   border-radius: 6px;
-  transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
+  transition: background 0.3s ease, padding 0.3s ease, box-shadow 0.3s ease;
 }
 
 .tm-down-arrow:hover,
@@ -504,7 +518,7 @@ blockquote {
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center center !important;
-  background-attachment: fixed;
+  background-attachment: scroll;
   position: relative;
 }
 
@@ -514,8 +528,6 @@ blockquote {
   inset: 0;
   background: 
     linear-gradient(to bottom, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0.1) 30%, rgba(0,0,0,0.1) 70%, rgba(0,0,0,0.5) 100%);
-  backdrop-filter: blur(3px);
-  -webkit-backdrop-filter: blur(3px);
   z-index: 0;
   pointer-events: none;
 }
@@ -1872,4 +1884,336 @@ p {
 .era-photo-overlay,
 .era-photo-dim {
   pointer-events: none;
+}
+
+/* ============================================================
+   MOBILE RESPONSIVE — PERBAIKAN MENYELURUH
+   ============================================================ */
+
+/* ── TIMELINE: Override semua inline absolute positioning ── */
+@media (max-width: 767px) {
+
+  /* Container timeline jadi flex column */
+  .tree-timeline {
+    display: flex !important;
+    flex-direction: column !important;
+    position: relative !important;
+    min-height: unset !important;
+    padding: 20px 0 40px !important;
+    margin: 0 auto !important;
+    max-width: 100% !important;
+    gap: 0 !important;
+  }
+
+  /* Batang tengah: geser ke kiri */
+  .tree-timeline > div:first-child {
+    position: absolute !important;
+    left: 20px !important;
+    top: 0 !important;
+    bottom: 0 !important;
+    width: 2px !important;
+    transform: none !important;
+  }
+
+  /* Setiap item timeline (wrapper) */
+  .tree-timeline > div:not(:first-child) {
+    position: relative !important;
+    top: auto !important;
+    left: auto !important;
+    right: auto !important;
+    width: 100% !important;
+    padding-left: 48px !important;
+    padding-right: 16px !important;
+    margin-bottom: 20px !important;
+    min-height: unset !important;
+  }
+
+  /* Titik bulat di setiap item */
+  .tree-timeline > div:not(:first-child) > div:first-child {
+    position: absolute !important;
+    left: 14px !important;
+    top: 14px !important;
+    transform: none !important;
+    width: 12px !important;
+    height: 12px !important;
+  }
+
+  /* Kartu konten (kiri maupun kanan) */
+  .tree-timeline > div:not(:first-child) > div:last-child,
+  .tree-timeline > div:not(:first-child) > div:nth-child(2) {
+    position: relative !important;
+    top: auto !important;
+    left: auto !important;
+    right: auto !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    border-left: 3px solid #cc0000 !important;
+    border-radius: 8px !important;
+    padding: 14px 16px !important;
+    text-align: left !important;
+    box-sizing: border-box !important;
+  }
+
+  /* Sembunyikan kartu duplikat (item yang punya 3 child: dot + 2 kartu) */
+  .tree-timeline > div:not(:first-child) > div:nth-child(3) {
+    display: none !important;
+  }
+
+  /* Teks dalam kartu */
+  .tree-timeline > div:not(:first-child) > div span {
+    font-size: 0.65rem !important;
+  }
+  .tree-timeline > div:not(:first-child) > div h4 {
+    font-size: 0.95rem !important;
+    margin-bottom: 6px !important;
+  }
+  .tree-timeline > div:not(:first-child) > div p {
+    font-size: 0.8rem !important;
+    line-height: 1.5 !important;
+  }
+
+  /* ── SECTION TESTIMONIALS ── */
+  #testimonials {
+    padding-top: 50px !important;
+    padding-bottom: 60px !important;
+  }
+
+  /* ── DAMPAK REFORMASI: Header ── */
+  #gallery > div:first-of-type {
+    padding: 70px 16px 40px !important;
+  }
+
+  #gallery > div:first-of-type h2 {
+    font-size: clamp(2rem, 10vw, 3.5rem) !important;
+    letter-spacing: 2px !important;
+  }
+
+  /* Toggle buttons */
+  #gallery > div:first-of-type > div:last-child {
+    flex-wrap: wrap !important;
+    gap: 4px !important;
+  }
+
+  #btn-all, #btn-pos, #btn-neg {
+    padding: 8px 16px !important;
+    font-size: 0.72rem !important;
+  }
+
+  /* Grid dampak: 1 kolom */
+  #dampak-grid {
+    grid-template-columns: 1fr !important;
+    min-height: unset !important;
+  }
+
+  #col-pos {
+    padding: 40px 20px !important;
+    border-right: none !important;
+    border-bottom: 1px solid rgba(255,255,255,0.06) !important;
+  }
+
+  #col-neg {
+    padding: 40px 20px !important;
+    border-right: none !important;
+  }
+
+  /* Dampak cards */
+  .dampak-card {
+    padding: 16px !important;
+  }
+
+  .dampak-card h4 {
+    font-size: 0.9rem !important;
+  }
+
+  .dampak-card p {
+    font-size: 0.8rem !important;
+  }
+
+  /* Quote penutup */
+  #gallery > div:last-of-type {
+    padding: 50px 20px !important;
+  }
+
+  /* ── ERA REFORMASI ── */
+  #era-reformasi {
+    padding: 60px 0 !important;
+  }
+
+  #era-reformasi .container > div:first-child {
+    margin-bottom: 40px !important;
+  }
+
+  #era-reformasi h2 {
+    font-size: clamp(1.8rem, 8vw, 3rem) !important;
+    letter-spacing: -1px !important;
+  }
+
+  /* Era row: stack vertikal */
+  .era-row {
+    display: flex !important;
+    flex-direction: column !important;
+  }
+
+  .era-label {
+    border-right: none !important;
+    border-bottom: 1px solid rgba(255,45,45,0.15) !important;
+    padding: 20px 20px 16px !important;
+    min-height: 80px !important;
+  }
+
+  .era-content {
+    padding: 20px !important;
+  }
+
+  .era-content p {
+    font-size: 0.83rem !important;
+  }
+
+  .era-content ul {
+    font-size: 0.82rem !important;
+    padding-left: 16px !important;
+  }
+
+  /* Tags/badge */
+  .era-content span[style*="border-radius:20px"],
+  .era-content > div > span {
+    font-size: 0.68rem !important;
+    padding: 3px 10px !important;
+  }
+
+  /* ── GALERI (section #contact) ── */
+  #contact {
+    padding: 60px 0 50px !important;
+    min-height: unset !important;
+  }
+
+  #contact h2 {
+    font-size: clamp(1.8rem, 8vw, 2.5rem) !important;
+  }
+
+  /* ── LATAR BELAKANG CARDS ── */
+  .col-lg-4.mb-4.latar-card-wrap {
+    width: 100% !important;
+    flex: 0 0 100% !important;
+    max-width: 100% !important;
+  }
+
+  .latar-card {
+    padding: 20px !important;
+  }
+
+  .latar-card h2 {
+    font-size: 1.1rem !important;
+  }
+
+  .latar-card p {
+    font-size: 0.88rem !important;
+  }
+
+  /* ── HERO ── */
+  .tm-hero-title {
+    font-size: clamp(2rem, 9vw, 3.5rem) !important;
+    letter-spacing: 2px !important;
+  }
+
+  .tm-hero-subtitle {
+    font-size: 0.88rem !important;
+    padding: 0 16px !important;
+  }
+
+  .tm-hero-text-container-inner {
+    margin-top: -40px !important;
+    padding: 0 16px !important;
+  }
+
+  .tm-intro-next {
+    bottom: 50px !important;
+  }
+
+  /* ── SECTION PADDING ── */
+  .tm-section-pad-top {
+    padding-top: 50px !important;
+    padding-bottom: 20px !important;
+  }
+
+  .tm-section-title {
+    font-size: 1.8rem !important;
+  }
+
+  .tm-intro-text {
+    font-size: 1rem !important;
+  }
+
+  /* ── OVERFLOW FIX ── */
+  section, .container, .container-fluid {
+    overflow-x: hidden !important;
+  }
+
+  /* ── LATAR BELAKANG: pastikan 1 kolom ── */
+  #whatwedo .row.tm-content-box .col-lg-4 {
+    flex: 0 0 100% !important;
+    max-width: 100% !important;
+  }
+  /* ── SECTION INTRO ── */
+  #whatwedo {
+    padding-top: 80px !important;
+  }
+
+  /* ── GALERI SECTION: fix min-height ── */
+  #contact {
+    min-height: unset !important;
+  }
+
+  /* ── FOOTER POSITION ── */
+  .tm-footer {
+    position: relative !important;
+    bottom: auto !important;
+    padding: 20px 16px !important;
+  }
+}
+
+/* ── TABLET (768px – 991px) ── */
+@media (min-width: 768px) and (max-width: 991px) {
+
+  .tm-hero-title {
+    font-size: 4rem !important;
+  }
+
+  /* Timeline: kartu lebih kecil */
+  .tree-timeline > div:not(:first-child) > div:last-child,
+  .tree-timeline > div:not(:first-child) > div:nth-child(2) {
+    width: 280px !important;
+  }
+
+  /* Dampak grid: 1 kolom */
+  #dampak-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  #col-pos {
+    padding: 48px 32px !important;
+    border-right: none !important;
+    border-bottom: 1px solid rgba(255,255,255,0.06) !important;
+  }
+
+  #col-neg {
+    padding: 48px 32px !important;
+  }
+
+  /* Era row: stack */
+  .era-row {
+    display: flex !important;
+    flex-direction: column !important;
+  }
+
+  .era-label {
+    border-right: none !important;
+    border-bottom: 1px solid rgba(255,45,45,0.1) !important;
+    padding: 20px 28px !important;
+  }
+
+  .era-content {
+    padding: 24px 28px !important;
+  }
 }
